@@ -90,36 +90,37 @@
    Theme variables (colors, fonts, sizes, weights, containers, delays)
    ========================================================================== */
 @theme {
-  /* Color palette - All hex values standardized to lowercase */
-  --color-primary: #ff8159;
-  --color-primary-light: #ffb8a0;
-  --color-primary-light-1: #ffa080;
-  --color-primary-light-2: #ffc8b0;
-  --color-primary-light-3: #ffd8c8;
-  --color-primary-light-4: #ffe8e0;
-  --color-primary-light-5: #fff4f0;
-  --color-primary-dark-1: #ff81590d;
-  --color-primary-dark-2: #ff815914;
-  --color-primary-dark-3: #ff81591a;
-  --color-primary-dark-4: #ff815933;
-  --color-primary-dark-5: #ff815938;
-  --color-primary-dark-6: #ff81594d;
-  --color-primary-dark-7: #ff815980;
-  --color-primary-dark-8: #e5673f;
+ --color-primary: #0F3325;
+  --color-primary-light: #6CBF86; /* Mapped to Soft Green */
+  --color-primary-light-1: #254d3d; /* Bridge between Dark and Soft */
+  --color-primary-light-2: #3d6b56;
+  --color-primary-light-3: #6CBF86;
+  --color-primary-light-4: #c9e8d6;
+  --color-primary-light-5: #eff7f3; /* Very pale green for backgrounds */
+  
+  /* Primary Opacities (Based on Dark Green #0F3325) */
+  --color-primary-dark-1: #0F33250d;
+  --color-primary-dark-2: #0F332514;
+  --color-primary-dark-3: #0F33251a;
+  --color-primary-dark-4: #0F332533;
+  --color-primary-dark-5: #0F332538;
+  --color-primary-dark-6: #0F33254d;
+  --color-primary-dark-7: #0F332580;
+  --color-primary-dark-8: #051a12; /* Deepest Green */
 
-  /* Secondary color */
-  --color-secondary: #b7d4fe;
-  --color-secondary-dark: #2563eb;
-  --color-secondary-muted: #7b9eb8;
-  --color-secondary-soft: #a8b5c4;
+  /* Secondary color - Now Soft Green (#6CBF86) */
+  --color-secondary: #6CBF86;
+  --color-secondary-dark: #569e6e;
+  --color-secondary-muted: #9ccdb0;
+  --color-secondary-soft: #ccebd9;
 
   /* Tertiary and Form */
-  --color-tertiary-light-2: #fff5f1;
+  --color-tertiary-light-2: #f4fcf8;
 
-  /* Neutral grays */
-  --color-gray-1: #1c1c1c;
-  --color-gray-2: #383838;
-  --color-gray-3: #3f3f3f;
+  /* Neutral grays - Updated Gray-1 to Deep Black */
+  --color-gray-1: #000000;
+  --color-gray-2: #1c1c1c;
+  --color-gray-3: #383838;
   --color-gray-4: #717182;
   --color-gray-5: #8d8d8d;
   --color-gray-6: #ababab;
@@ -130,19 +131,19 @@
   --color-gray-11: #6d6d6d;
 
   /* ---- Added missing neutral / supporting tones ---- */
-  --color-gray-overlay-50: #0a0a0a80;
+  --color-gray-overlay-50: #00000080;
   --color-gray-border-light: #d1d5dc;
   --color-gray-border-dark: #e0e0e0;
-  --color-gray-accent-dark: #4a5565;
+  --color-gray-accent-dark: #2f3835;
 
-  /* --- Orange / Warm Accent Palette --- */
-  --color-accent-bg-light: #fffbeb;
-  --color-accent-dark: #7b3306;
-  --color-accent-yellow: #fee685;
-  --color-accent-cream: #ffeebe;
-  --color-accent-orange: #e17100;
-  --color-accent-deep: #bb4d00;
-  --color-accent-tag: #ffa52f;
+  /* --- Accent Palette (Adjusted to Earthy tones to fit Green) --- */
+  --color-accent-bg-light: #fbfdfc;
+  --color-accent-dark: #0F3325;
+  --color-accent-yellow: #fee685; /* Kept for warnings */
+  --color-accent-cream: #f0f7f4;
+  --color-accent-orange: #e17100; /* Kept for alerts */
+  --color-accent-deep: #1e4a38;
+  --color-accent-tag: #6CBF86;
   --color-accent-clay: #c9b8b4;
   --color-accent-sand: #d4a99a;
 
@@ -158,8 +159,7 @@
   --color-white-dark-3: #ffffff66; /* 40% opacity white overlay */
   --color-white-dark-4: #ffffffcc; /* 80% opacity white overlay */
   --color-black: #000000;
-  --color-green: #0d542b;
-
+  --color-green: #0F3325;
   /* Fonts */
   --font-domine: 'LTRemark', serif;
   --font-lora: 'Mont', sans-serif;
