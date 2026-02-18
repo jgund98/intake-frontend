@@ -1,0 +1,500 @@
+{
+  "steps": [
+    {
+      "stepId": 1,
+      "stepTitle": "Goal",
+      "marketingId": null,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Tell us a little about yourself!",
+          "caption": "Let's start with your basic details",
+          "question": "",
+          "fieldName": "basicInfo",
+          "component": "BasicInfo",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}'s journey to feeling best",
+          "caption": "First off, help us find the right prescription for you!",
+          "question": "What is your age?",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "age",
+          "component": "NumberInput",
+          "required": true,
+          "props": {
+            "placeholder": "Enter your age",
+            "min": 0,
+            "max": 120
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}'s journey to feeling best",
+          "caption": "Let's start by understanding what you are facing",
+          "question": "",
+          "note": "Please select all that apply.",
+          "fieldName": "skinConditions",
+          "component": "MultiSelectWithDropdowns",
+          "required": true,
+          "props": {
+            "questionOne": "How would you describe your acne?",
+            "questionTwo": "Please select how dry/oily your skin is.",
+            "questionThree": "How sensitive is your skin?",
+            "noteOne": "Please select all that apply.",
+            "placeholderOne": "Type to search…",
+            "placeholderTwo": "Select an option",
+            "placeholderThree": "Select an option",
+            "optionsOne": [
+              {
+                "label": "Mild",
+                "value": "Mild"
+              },
+              {
+                "label": "Moderate",
+                "value": "Moderate"
+              },
+              {
+                "label": "Severe",
+                "value": "Severe"
+              },
+              {
+                "label": "I don't have acne",
+                "value": "I don't have acne"
+              }
+            ],
+            "optionsTwo": [
+              {
+                "label": "Very dry",
+                "value": "Very dry"
+              },
+              {
+                "label": "Dry",
+                "value": "Dry"
+              },
+              {
+                "label": "Normal/Balanced",
+                "value": "Normal/Balanced"
+              },
+              {
+                "label": "Oily",
+                "value": "Oily"
+              },
+              {
+                "label": "Very oily",
+                "value": "Very oily"
+              }
+            ],
+            "optionsThree": [
+              {
+                "label": "Very sensitive",
+                "value": "Very sensitive"
+              },
+              {
+                "label": "Somewhat sensitive",
+                "value": "Somewhat sensitive"
+              },
+              {
+                "label": "Not very sensitive",
+                "value": "Not very sensitive"
+              },
+              {
+                "label": "I'm not sure",
+                "value": "I'm not sure"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "{userName}'s journey to feeling best",
+          "caption": "Let's start by understanding what you are facing",
+          "question": "What other goals do you have for your skin? Select all that apply.",
+          "note": "Please select all that apply.",
+          "fieldName": "skinConcerns",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Type to search…",
+            "options": [
+              {
+                "label": "Acne",
+                "value": "Acne"
+              },
+              {
+                "label": "Dark spots/Hyperpigmentation",
+                "value": "Dark spots/Hyperpigmentation"
+              },
+              {
+                "label": "Fine lines/Wrinkles",
+                "value": "Fine lines/Wrinkles"
+              },
+              {
+                "label": "Rosacea/Redness",
+                "value": "Rosacea/Redness"
+              },
+              {
+                "label": "Uneven texture",
+                "value": "Uneven texture"
+              },
+              {
+                "label": "Large pores",
+                "value": "Large pores"
+              },
+              {
+                "label": "Dullness",
+                "value": "Dullness"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 2,
+      "stepTitle": "Treatment",
+      "marketingId": 5,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, how's your treatment going?",
+          "caption": "Help me understand about your treatment",
+          "question": "Are you currently using tretinoin, retin-A, or other retinol product?",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "isTakingRetinolProduct",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/no.svg",
+                "label": "Yes, I am",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No, I'm not",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, how's your treatment going?",
+          "caption": "Help me understand about your treatment",
+          "question": "What strength tretinoin or retin-A are you using?",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "tretinoinStrength",
+          "component": "Dropdown",
+          "required": true,
+          "props": {
+            "placeholder": "Select strength",
+            "options": [
+              {
+                "label": "0.025%",
+                "value": "0.025%"
+              },
+              {
+                "label": "0.05%",
+                "value": "0.05%"
+              },
+              {
+                "label": "0.1%",
+                "value": "0.1%"
+              },
+              {
+                "label": "I'm not using any",
+                "value": "I'm not using any"
+              },
+              {
+                "label": "I don't know",
+                "value": "I don't know"
+              }
+            ]
+          },
+          "dependsOn": {
+            "fieldName": "isTakingRetinolProduct",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "Hey {userName}, how's your treatment going?",
+          "caption": "Help me understand about your treatment",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "skinCareProducts",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "Which of the following do you use.",
+            "questionTwo": "Please list all skincare products you are using.",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search products…",
+            "placeholderTwo": "List all products you're using",
+            "options": [
+              {
+                "label": "Benzoyl peroxide",
+                "value": "Benzoyl peroxide"
+              },
+              {
+                "label": "Salicylic acid",
+                "value": "Salicylic acid"
+              },
+              {
+                "label": "Azelaic acid",
+                "value": "Azelaic acid"
+              },
+              {
+                "label": "Retinol or retinoids",
+                "value": "Retinol or retinoids"
+              },
+              {
+                "label": "Vitamin C serum",
+                "value": "Vitamin C serum"
+              },
+              {
+                "label": "Hyaluronic acid",
+                "value": "Hyaluronic acid"
+              },
+              {
+                "label": "Niacinamide",
+                "value": "Niacinamide"
+              },
+              {
+                "label": "AHA/BHA exfoliants",
+                "value": "AHA/BHA exfoliants"
+              },
+              {
+                "label": "Hydroquinone",
+                "value": "Hydroquinone"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          },
+          "dependsOn": {
+            "fieldName": "isTakingRetinolProduct",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "Hey {userName}, how's your treatment going?",
+          "caption": "Help me understand about your treatment",
+          "question": "Please list any prescription or over the counter medications or supplements you are taking. Type here, or tap N/A on right if not applicable",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "currentMedications",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Aspirin 100mg, Vitamin D, or N/A",
+            "errorMessage": "Please provide your current medications or write N/A",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 3,
+      "stepTitle": "Health",
+      "marketingId": 6,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "medicalConditions",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "Do you have any of the following skin conditions? Please select all that apply.",
+            "questionTwo": "Please list all other current medical conditions.",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search…",
+            "placeholderTwo": "Enter other medical conditions or N/A",
+            "options": [
+              {
+                "label": "Heart failure",
+                "value": "Heart failure"
+              },
+              {
+                "label": "Pericarditis",
+                "value": "Pericarditis"
+              },
+              {
+                "label": "Benign Prostatic Hyperplasia",
+                "value": "Benign Prostatic Hyperplasia"
+              },
+              {
+                "label": "Liver disease",
+                "value": "Liver disease"
+              },
+              {
+                "label": "Kidney disease",
+                "value": "Kidney disease"
+              },
+              {
+                "label": "Eczema",
+                "value": "Eczema"
+              },
+              {
+                "label": "Psoriasis",
+                "value": "Psoriasis"
+              },
+              {
+                "label": "Rosacea",
+                "value": "Rosacea"
+              },
+              {
+                "label": "Seborrheic dermatitis",
+                "value": "Seborrheic dermatitis"
+              },
+              {
+                "label": "Autoimmune conditions",
+                "value": "Autoimmune conditions"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 4,
+      "stepTitle": "Allergies",
+      "marketingId": 7,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "allergies",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "Are you allergic or sensitive to any of the following topical products? Please select all that apply.",
+            "questionTwo": "Please list allergies to prescription or over-the-counter medicines, herbs, vitamins, supplements, food, dyes, or anything else. Type here, or tap N/A on right if not applicable",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search allergies…",
+            "placeholderTwo": "List all allergies or N/A",
+            "options": [
+              {
+                "label": "Benzoyl peroxide",
+                "value": "Benzoyl peroxide"
+              },
+              {
+                "label": "Salicylic acid",
+                "value": "Salicylic acid"
+              },
+              {
+                "label": "Retinol or retinoids",
+                "value": "Retinol or retinoids"
+              },
+              {
+                "label": "Hydroquinone",
+                "value": "Hydroquinone"
+              },
+              {
+                "label": "Fragrances",
+                "value": "Fragrances"
+              },
+              {
+                "label": "Sulfates",
+                "value": "Sulfates"
+              },
+              {
+                "label": "Parabens",
+                "value": "Parabens"
+              },
+              {
+                "label": "Sunscreen ingredients",
+                "value": "Sunscreen ingredients"
+              },
+              {
+                "label": "Essential oils",
+                "value": "Essential oils"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "Is there anything else about your condition or health that you would like your doctor to know?",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "additionalHealthInfo",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Additional health information or N/A",
+            "errorMessage": "Please provide additional information or write N/A",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 5,
+      "stepTitle": "Verification",
+      "marketingId": 8,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, we just need a couple more things.",
+          "caption": "We need to verify your identity and understand how you'd like to connect with your provider",
+          "fieldName": "consultationPreference",
+          "component": "ConsultationPreference",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, let's double-check that we have everything. Once we do, we’re all set to go!",
+          "fieldName": "userDetails",
+          "component": "UserDetails",
+          "required": true,
+          "props": {
+            "basicInfoFieldName": "basicInfo"
+          }
+        }
+      ]
+    }
+  ],
+  "conditionTypes": {
+    "equals": "Check if field value equals specified value",
+    "notEquals": "Check if field value does not equal specified value",
+    "hasLength": "Check if array/string has length greater than 0",
+    "isEmpty": "Check if field is empty/null/undefined",
+    "isNotEmpty": "Check if field has a value",
+    "contains": "Check if array contains specified value",
+    "greaterThan": "Check if numeric value is greater than specified value",
+    "lessThan": "Check if numeric value is less than specified value"
+  }
+}

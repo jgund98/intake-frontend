@@ -1,0 +1,497 @@
+{
+  "steps": [
+    {
+      "stepId": 1,
+      "stepTitle": "Goal",
+      "marketingId": null,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Tell us a little about yourself!",
+          "caption": "Let's start with your basic details",
+          "question": "",
+          "fieldName": "basicInfo",
+          "component": "BasicInfo",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}’s journey to feeling best",
+          "caption": "Let's start by understanding what brings you here today",
+          "question": "What are your weight loss goals?",
+          "fieldName": "weightLossGoal",
+          "component": "SingleSelectCardList",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/aim.svg",
+                "label": "Lose 1-20lbs for good",
+                "value": "Lose 1-20lbs for good"
+              },
+              {
+                "icon": "/icons/loss.svg",
+                "label": "Lose 21-50lbs for good",
+                "value": "Lose 21-50lbs for good"
+              },
+              {
+                "icon": "/icons/weight.svg",
+                "label": "Lose over 50 for good",
+                "value": "Lose over 50 for good"
+              },
+              {
+                "icon": "/icons/heart.svg",
+                "label": "Maintain my healthy weight",
+                "value": "Maintain my healthy weight"
+              },
+              {
+                "icon": "/icons/stars.svg",
+                "label": "None of the above",
+                "value": "None of the above"
+              },
+              {
+                "icon": "/icons/yes.svg",
+                "label": "Other",
+                "value": "Other"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}’s journey to feeling best",
+          "caption": "Let's start by understanding what you have tried",
+          "question": "What weight loss initiatives have you tried in the past?",
+          "fieldName": "weightLossInitiatives",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select your initiatives",
+            "options": [
+              {
+                "label": "Exercise",
+                "value": "Exercise"
+              },
+              {
+                "label": "Dieting",
+                "value": "Dieting"
+              },
+              {
+                "label": "Weight-loss Supplements",
+                "value": "Weight-loss Supplements"
+              },
+              {
+                "label": "Intermittent Fasting",
+                "value": "Intermittent Fasting"
+              },
+              {
+                "label": "None of the Above",
+                "value": "None of the Above"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "{userName}’s journey to feeling best",
+          "caption": "Let's talk about how your age, height, and weight come into play here.",
+          "question": "What are your age, height, and weight?",
+          "fieldName": "bmiCalculation",
+          "component": "BMICalculator",
+          "required": true,
+          "props": {}
+        }
+      ]
+    },
+    {
+      "stepId": 2,
+      "stepTitle": "Medication",
+      "marketingId": 1,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, how's your medication going?",
+          "caption": "Help me understand if you're already taking a GLP-1 medication",
+          "question": "Are you currently taking any GLP-1 medications?",
+          "fieldName": "isTakingGLP1Medications",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/medicine.svg",
+                "label": "Yes, I am",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No, I'm not",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, how's your medication going?",
+          "caption": "Thanks for letting me know you're on some meds!",
+          "question": "Please provide details about the medication you're currently taking",
+          "note": "This helps your provider create the perfect plan for you",
+          "fieldName": "currentGLP1Medication",
+          "component": "CurrentMedication",
+          "required": true,
+          "props": {
+            "medicationOptions": [
+              {
+                "label": "Compounded Semaglutide Injections",
+                "value": "Compounded Semaglutide Injections"
+              },
+              {
+                "label": "Compounded Tirzepatide Injections",
+                "value": "Compounded Tirzepatide Injections"
+              },
+              {
+                "label": "Branded Semaglutide (Wegovy or Ozempic)",
+                "value": "Branded Semaglutide (Wegovy or Ozempic)"
+              },
+              {
+                "label": "Branded Tirzepatide (Zepbound or Mounjaro)",
+                "value": "Branded Tirzepatide (Zepbound or Mounjaro)"
+              },
+              {
+                "label": "Oral Semaglutide",
+                "value": "Oral Semaglutide"
+              },
+              {
+                "label": "Oral Tirzepatide",
+                "value": "Oral Tirzepatide"
+              }
+            ]
+          },
+          "dependsOn": {
+            "fieldName": "isTakingGLP1Medications",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "Hey {userName}, how's your medication going?",
+          "caption": "Help me understand if you're taking any other medication",
+          "question": "Are you currently taking any other medications (Rx, OTC, supplements)?",
+          "note": "This helps your provider create the perfect plan for you",
+          "fieldName": "isTakingAnyMedication",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/medicine.svg",
+                "label": "Yes, I am",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No, I'm not",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "Hey {userName}, how's your medication going?",
+          "caption": "Help me understand if you're taking any other medication",
+          "question": "Write all medications you are currently taking",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "otherMedicationsList",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Aspirin 100mg, Metformin 500mg, Vitamin D...",
+            "errorMessage": "Please provide your current medications or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "isTakingAnyMedication",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 3,
+      "stepTitle": "Health",
+      "marketingId": 2,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "Are you pregnant, breastfeeding, or planning pregnancy?",
+          "fieldName": "isPregnantOrBreastfeeding",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/no.svg",
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          },
+          "dependsOn": {
+            "fieldName": "basicInfo.gender",
+            "condition": "equals",
+            "value": "female"
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Knowing your health history helps us give you better and safer care. If you don't have any medical issues, Just choose None Of the Above from list!",
+          "question": "Do you currently have any of the following high-risk medical conditions?",
+          "fieldName": "currentMedicalConditions",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select condition",
+            "options": [
+              {
+                "label": "Gastroparesis",
+                "value": "Gastroparesis"
+              },
+              {
+                "label": "Pancreatic Cancer",
+                "value": "Pancreatic Cancer"
+              },
+              {
+                "label": "Pancreatitis",
+                "value": "Pancreatitis"
+              },
+              {
+                "label": "Type 1 Diabetes or Diabetes Requiring Insulin",
+                "value": "Type 1 Diabetes or Diabetes Requiring Insulin"
+              },
+              {
+                "label": "Hypoglycemia",
+                "value": "Hypoglycemia"
+              },
+              {
+                "label": "Medullary Thyroid Cancer (MTC) or family history of MTC",
+                "value": "Medullary Thyroid Cancer (MTC) or family history of MTC"
+              },
+              {
+                "label": "Bipolar Disorder",
+                "value": "Bipolar Disorder"
+              },
+              {
+                "label": "Schizophrenia",
+                "value": "Schizophrenia"
+              },
+              {
+                "label": "Multiple Endocrine Neoplasia syndrome type 2 (MEN-2) or family history of MEN-2",
+                "value": "Multiple Endocrine Neoplasia syndrome type 2 (MEN-2) or family history of MEN-2"
+              },
+              {
+                "label": "Anorexia or Bulimia",
+                "value": "Anorexia or Bulimia"
+              },
+              {
+                "label": "Current Symptomatic Gallstones or Active Gallbladder Disease",
+                "value": "Current Symptomatic Gallstones or Active Gallbladder Disease"
+              },
+              {
+                "label": "Active Substance Abuse Disorder",
+                "value": "Active Substance Abuse Disorder"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "Please check all current or past medical conditions.",
+          "fieldName": "pastMedicalConditions",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select conditions",
+            "options": [
+              {
+                "label": "Hypertension (high blood pressure)",
+                "value": "Hypertension (high blood pressure)"
+              },
+              {
+                "label": "High cholesterol",
+                "value": "High cholesterol"
+              },
+              {
+                "label": "Type 2 diabetes",
+                "value": "Type 2 diabetes"
+              },
+              {
+                "label": "Obstructive sleep apnea",
+                "value": "Obstructive sleep apnea"
+              },
+              {
+                "label": "Gout",
+                "value": "Gout"
+              },
+              {
+                "label": "Metabolic syndrome",
+                "value": "Metabolic syndrome"
+              },
+              {
+                "label": "Heart disease",
+                "value": "Heart disease"
+              },
+              {
+                "label": "stroke",
+                "value": "stroke"
+              },
+              {
+                "label": "peripheral vascular disease",
+                "value": "peripheral vascular disease"
+              },
+              {
+                "label": "Heart Failure",
+                "value": "Heart Failure"
+              },
+              {
+                "label": "Atrial fibrillation or flutter",
+                "value": "Atrial fibrillation or flutter"
+              },
+              {
+                "label": "Tachycardia or fast heart rate",
+                "value": "Tachycardia or fast heart rate"
+              },
+              {
+                "label": "Any ECG abnormality or heart rhythm abnormality",
+                "value": "Any ECG abnormality or heart rhythm abnormality"
+              },
+              {
+                "label": "Gallbladder removed",
+                "value": "Gallbladder removed"
+              },
+              {
+                "label": "Fatty Liver (MASLD or MASH)",
+                "value": "Fatty Liver (MASLD or MASH)"
+              },
+              {
+                "label": "Cirrhosis or end-stage liver disease",
+                "value": "Cirrhosis or end-stage liver disease"
+              },
+              {
+                "label": "Chronic Kidney Disease Stage 3 or greater",
+                "value": "Chronic Kidney Disease Stage 3 or greater"
+              },
+              {
+                "label": "Hypothyroidism",
+                "value": "Hypothyroidism"
+              },
+              {
+                "label": "Hyperthyroidism",
+                "value": "Hyperthyroidism"
+              },
+              {
+                "label": "Thyroid Issues",
+                "value": "Thyroid Issues"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Feel free to write 'N/A' if you don't have any experiences to share!",
+          "question": "List any surgeries you have had in the past:",
+          "note": "Thank you for being so thorough, this gives us a complete picture",
+          "fieldName": "pastSurgeries",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Appendectomy (2019) or N/A",
+            "errorMessage": "Please provide your past surgeries or write N/A",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 4,
+      "stepTitle": "Allergies",
+      "marketingId": 3,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "Please list all of your known allergies:",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "allergies",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Penicillin, Pollen, Shellfish, Latex or N/A",
+            "errorMessage": "Please provide your allergies or write N/A",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 5,
+      "stepTitle": "Verification",
+      "marketingId": 4,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, we just need a couple more things.",
+          "caption": "We need to verify your identity and understand how you'd like to connect with your provider",
+          "fieldName": "consultationPreference",
+          "component": "ConsultationPreference",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, let's double-check that we have everything. Once we do, we’re all set to go!",
+          "fieldName": "userDetails",
+          "component": "UserDetails",
+          "required": true,
+          "props": {
+            "basicInfoFieldName": "basicInfo"
+          }
+        }
+      ]
+    }
+  ],
+  "conditionTypes": {
+    "equals": "Check if field value equals specified value",
+    "notEquals": "Check if field value does not equal specified value",
+    "hasLength": "Check if array/string has length greater than 0",
+    "isEmpty": "Check if field is empty/null/undefined",
+    "isNotEmpty": "Check if field has a value",
+    "contains": "Check if array contains specified value",
+    "greaterThan": "Check if numeric value is greater than specified value",
+    "lessThan": "Check if numeric value is less than specified value"
+  }
+}

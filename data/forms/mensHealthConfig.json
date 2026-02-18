@@ -1,0 +1,403 @@
+{
+  "steps": [
+    {
+      "stepId": 1,
+      "stepTitle": "Goal",
+      "marketingId": null,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Tell us a little about yourself!",
+          "caption": "Let's start with your basic details",
+          "question": "",
+          "fieldName": "basicInfo",
+          "component": "BasicInfo",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}’s journey to feeling best",
+          "caption": "Let's talk about how your age, height, and weight come into play here.",
+          "question": "What are your age, height, and weight?",
+          "fieldName": "bmiCalculation",
+          "component": "BMICalculator",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}'s journey to feeling best",
+          "caption": "Let's start by understanding what you are experiencing",
+          "question": "Please select symptoms you are experiencing from the following list. Select all that apply.",
+          "fieldName": "currentSymptoms",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select symptoms you're experiencing",
+            "options": [
+              {
+                "label": "Low energy/fatigue",
+                "value": "Low energy/fatigue"
+              },
+              {
+                "label": "Decreased libido",
+                "value": "Decreased libido"
+              },
+              {
+                "label": "Difficulty building muscle",
+                "value": "Difficulty building muscle"
+              },
+              {
+                "label": "Mood changes",
+                "value": "Mood changes"
+              },
+              {
+                "label": "Weight gain",
+                "value": "Weight gain"
+              },
+              {
+                "label": "None of the Above",
+                "value": "None of the Above"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 2,
+      "stepTitle": "Treatment",
+      "marketingId": 17,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, how's your medication going?",
+          "caption": "Help me understand if you're taking any medication",
+          "question": "Have you ever taken Testosterone or another medication for low-T?",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "isTakingMedications",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/no.svg",
+                "label": "Yes, I am",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No, I'm not",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, how's your medication going?",
+          "caption": "Help me understand if you're taking any medication",
+          "question": "Please tell us more about the dose and delivery method (injection, cream, etc.) of testosterone you took as well as any side effects you experienced.",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "doseAndDeliveryMethod",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., 200mg injection weekly, no side effects or N/A",
+            "errorMessage": "Please provide dose and delivery method or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "isTakingMedications",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "Hey {userName}, how's your medication going?",
+          "caption": "Help me understand if you're taking any medication",
+          "question": "List all prescription / OTC meds / supplements you're taking.",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "currentSupplementsAndMedications",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Aspirin 100mg, Vitamin D, Multivitamin or N/A",
+            "errorMessage": "Please provide your medications/supplements or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "isTakingMedications",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 3,
+      "stepTitle": "Health",
+      "marketingId": 18,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "medicalConditionsAndMedications",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "Do you have or had any of the following?",
+            "questionTwo": "List all current medical conditions.",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search conditions…",
+            "placeholderTwo": "List all medical conditions or N/A",
+            "options": [
+              {
+                "label": "Heart failure",
+                "value": "Heart failure"
+              },
+              {
+                "label": "Pericarditis",
+                "value": "Pericarditis"
+              },
+              {
+                "label": "Benign Prostatic Hyperplasia",
+                "value": "Benign Prostatic Hyperplasia"
+              },
+              {
+                "label": "Liver disease",
+                "value": "Liver disease"
+              },
+              {
+                "label": "Kidney disease",
+                "value": "Kidney disease"
+              },
+              {
+                "label": "Breast cancer",
+                "value": "Breast cancer"
+              },
+              {
+                "label": "Prostate cancer",
+                "value": "Prostate cancer"
+              },
+              {
+                "label": "Blood clotting disorder",
+                "value": "Blood clotting disorder"
+              },
+              {
+                "label": "Stroke or TIA",
+                "value": "Stroke or TIA"
+              },
+              {
+                "label": "Depression or anxiety",
+                "value": "Depression or anxiety"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "Do you have labs from the last 60 days?",
+          "note": "If NO, Provider will order labs for you",
+          "fieldName": "hasRecentLabs",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/yes.svg",
+                "label": "Yes, I have",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No, I don't",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "Upload lab results.",
+          "note": "This helps us understand your current health status and provide better care",
+          "fieldName": "labResults",
+          "component": "FileUpload",
+          "required": true,
+          "props": {},
+          "dependsOn": {
+            "fieldName": "hasRecentLabs",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 4,
+      "stepTitle": "Allergies",
+      "marketingId": 19,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "List any allergies (medication, supplements, food, dyes, etc.)",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "allergies",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Penicillin, Pollen, Shellfish, Latex or N/A",
+            "errorMessage": "Please provide your allergies or write N/A",
+            "allowNA": true
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "Is there anything else you want to tell your doctor?",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "additionalHealthInfo",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Additional health information or N/A",
+            "errorMessage": "Please provide additional information or write N/A",
+            "allowNA": true
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "allergicMedicalConditionsAndMedications",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "Do you have or had any of the following?",
+            "questionTwo": "List all current medical conditions.",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search conditions…",
+            "placeholderTwo": "List all medical conditions or N/A",
+            "options": [
+              {
+                "label": "Heart failure",
+                "value": "Heart failure"
+              },
+              {
+                "label": "Pericarditis",
+                "value": "Pericarditis"
+              },
+              {
+                "label": "Benign Prostatic Hyperplasia",
+                "value": "Benign Prostatic Hyperplasia"
+              },
+              {
+                "label": "Liver disease",
+                "value": "Liver disease"
+              },
+              {
+                "label": "Kidney disease",
+                "value": "Kidney disease"
+              },
+              {
+                "label": "Breast cancer",
+                "value": "Breast cancer"
+              },
+              {
+                "label": "Prostate cancer",
+                "value": "Prostate cancer"
+              },
+              {
+                "label": "Blood clotting disorder",
+                "value": "Blood clotting disorder"
+              },
+              {
+                "label": "Stroke or TIA",
+                "value": "Stroke or TIA"
+              },
+              {
+                "label": "Depression or anxiety",
+                "value": "Depression or anxiety"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 5,
+      "stepTitle": "Verification",
+      "marketingId": 20,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, we just need a couple more things.",
+          "caption": "Please review and agree to the following",
+          "question": "",
+          "fieldName": "agreementConsents",
+          "component": "CheckboxAgreements",
+          "required": true,
+          "props": {
+            "questionOne": "Our providers mainly keep an eye on and help with testosterone replacement, but it's important to remember that your overall health in involves more than just this. It's recommended to regularly check in with your regular doctor (PCP), and let them know that you are taking testosterone. They can check various other important aspects of your health. We strongly suggest getting a checkup and blood test done by your doctor every year to make sure your health is in good shape. I understand I should let primary care provider know that I have started testosterone replacement therapy and to follow up with my primary care provider for ongoing monitoring and check ups. *",
+            "checkboxLabelOne": "I agree to share this with my PCP",
+            "questionTwo": "Remember, Testosterone is a prescription medication. Make sure you follow your provider's instructions exactly.<br/><a href='#' class='text-primary hover:underline'>Medical Consent</a>, <a href='#' class='text-primary hover:underline'>Terms and Conditions</a> *",
+            "checkboxLabelTwo": "I agree to the Medical Consent and Terms"
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, we just need a couple more things.",
+          "caption": "We need to verify your identity and understand how you'd like to connect with your provider",
+          "fieldName": "consultationPreference",
+          "component": "ConsultationPreference",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 3,
+          "heading": "Hey {userName}, let's double-check that we have everything. Once we do, we're all set to go!",
+          "fieldName": "userDetails",
+          "component": "UserDetails",
+          "required": true,
+          "props": {
+            "basicInfoFieldName": "basicInfo"
+          }
+        }
+      ]
+    }
+  ],
+  "conditionTypes": {
+    "equals": "Check if field value equals specified value",
+    "notEquals": "Check if field value does not equal specified value",
+    "hasLength": "Check if array/string has length greater than 0",
+    "isEmpty": "Check if field is empty/null/undefined",
+    "isNotEmpty": "Check if field has a value",
+    "contains": "Check if array contains specified value",
+    "greaterThan": "Check if numeric value is greater than specified value",
+    "lessThan": "Check if numeric value is less than specified value"
+  }
+}

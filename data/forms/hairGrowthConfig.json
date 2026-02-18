@@ -1,0 +1,491 @@
+{
+  "steps": [
+    {
+      "stepId": 1,
+      "stepTitle": "Goal",
+      "marketingId": null,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Tell us a little about yourself!",
+          "caption": "Let's start with your basic details",
+          "question": "",
+          "fieldName": "basicInfo",
+          "component": "BasicInfo",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}'s hair concerns",
+          "caption": "Help us understand your hair loss pattern",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "hairSatisfactionAndGoals",
+          "component": "DropdownWithMultiSelect",
+          "required": true,
+          "props": {
+            "questionOne": "How satisfied are you with your hair overall?",
+            "questionTwo": "What are your top-priority goals for hair loss treatment?",
+            "noteTwo": "Please select all that apply.",
+            "placeholderOne": "Select satisfaction level",
+            "placeholderTwo": "Type to search goals…",
+            "optionsOne": [
+              {
+                "label": "Very satisfied",
+                "value": "Very satisfied"
+              },
+              {
+                "label": "Satisfied",
+                "value": "Satisfied"
+              },
+              {
+                "label": "Neutral",
+                "value": "Neutral"
+              },
+              {
+                "label": "Dissatisfied",
+                "value": "Dissatisfied"
+              },
+              {
+                "label": "Very dissatisfied",
+                "value": "Very dissatisfied"
+              }
+            ],
+            "optionsTwo": [
+              {
+                "label": "Prevent further hair loss",
+                "value": "Prevent further hair loss"
+              },
+              {
+                "label": "Regrow hair in thinning areas",
+                "value": "Regrow hair in thinning areas"
+              },
+              {
+                "label": "Thicken existing hair",
+                "value": "Thicken existing hair"
+              },
+              {
+                "label": "Improve hair texture and quality",
+                "value": "Improve hair texture and quality"
+              },
+              {
+                "label": "Restore hairline",
+                "value": "Restore hairline"
+              },
+              {
+                "label": "Increase hair density",
+                "value": "Increase hair density"
+              },
+              {
+                "label": "Slow down hair loss progression",
+                "value": "Slow down hair loss progression"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}'s journey to feeling best",
+          "caption": "Let's start by understanding what you are facing",
+          "question": "Where are you noticing hair loss or thinning? *",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "hairLossLocation",
+          "component": "Dropdown",
+          "required": true,
+          "props": {
+            "placeholder": "Select location",
+            "options": [
+              {
+                "label": "Crown only",
+                "value": "Crown only"
+              },
+              {
+                "label": "Hairline only",
+                "value": "Hairline only"
+              },
+              {
+                "label": "Both hairline and crown",
+                "value": "Both hairline and crown"
+              },
+              {
+                "label": "All over scalp",
+                "value": "All over scalp"
+              },
+              {
+                "label": "Patchy areas",
+                "value": "Patchy areas"
+              },
+              {
+                "label": "Temples",
+                "value": "Temples"
+              },
+              {
+                "label": "Vertex (back of head)",
+                "value": "Vertex (back of head)"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "{userName}'s journey to feeling best",
+          "caption": "Let's start by understanding what you are facing",
+          "question": "Have you noticed any of the following scalp or hair-related symptoms?",
+          "fieldName": "scalpSymptoms",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select symptoms",
+            "options": [
+              {
+                "label": "Itchy scalp",
+                "value": "Itchy scalp"
+              },
+              {
+                "label": "Flaky or scaly scalp",
+                "value": "Flaky or scaly scalp"
+              },
+              {
+                "label": "Redness or irritation",
+                "value": "Redness or irritation"
+              },
+              {
+                "label": "Tender or painful scalp",
+                "value": "Tender or painful scalp"
+              },
+              {
+                "label": "Excessive oiliness",
+                "value": "Excessive oiliness"
+              },
+              {
+                "label": "Dry or brittle hair",
+                "value": "Dry or brittle hair"
+              },
+              {
+                "label": "Hair breakage",
+                "value": "Hair breakage"
+              },
+              {
+                "label": "Thinning eyebrows or eyelashes",
+                "value": "Thinning eyebrows or eyelashes"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 2,
+      "stepTitle": "Treatment",
+      "marketingId": 9,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, how's your treatment going?",
+          "caption": "Help me understand if you're taking any medication",
+          "question": "Have you ever treated your hair loss with medication?",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "hasTreatedHairLoss",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/yes.svg",
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, how's your treatment going?",
+          "caption": "Help me understand about your treatment",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "treatmentHistory",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "What treatments did you receive?",
+            "questionTwo": "Please tell us more about your treatment experience (effectiveness, side effects, etc.)",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search treatments…",
+            "placeholderTwo": "Describe your treatment experience",
+            "options": [
+              {
+                "label": "Oral minoxidil",
+                "value": "Oral minoxidil"
+              },
+              {
+                "label": "Topical minoxidil or Rogaine",
+                "value": "Topical minoxidil or Rogaine"
+              },
+              {
+                "label": "Oral Finasteride or Propecia",
+                "value": "Oral Finasteride or Propecia"
+              },
+              {
+                "label": "Topical Finasteride",
+                "value": "Topical Finasteride"
+              },
+              {
+                "label": "Dutasteride",
+                "value": "Dutasteride"
+              },
+              {
+                "label": "Hair transplant",
+                "value": "Hair transplant"
+              },
+              {
+                "label": "Low-level laser therapy",
+                "value": "Low-level laser therapy"
+              },
+              {
+                "label": "PRP (Platelet-Rich Plasma)",
+                "value": "PRP (Platelet-Rich Plasma)"
+              },
+              {
+                "label": "Hair growth supplements",
+                "value": "Hair growth supplements"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          },
+          "dependsOn": {
+            "fieldName": "hasTreatedHairLoss",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 3,
+      "stepTitle": "Health",
+      "marketingId": 10,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "Have you ever been diagnosed with or treated for high or low blood pressure? *",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "hasBloodPressureIssues",
+          "component": "Dropdown",
+          "required": true,
+          "props": {
+            "placeholder": "Select an option",
+            "options": [
+              {
+                "label": "Yes, high blood pressure",
+                "value": "Yes, high blood pressure"
+              },
+              {
+                "label": "Yes, low blood pressure",
+                "value": "Yes, low blood pressure"
+              },
+              {
+                "label": "Yes, both",
+                "value": "Yes, both"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}, lets talk about your health ...",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "medicalConditionsAndMedications",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "Do you have or have you ever had any of the following conditions?",
+            "questionTwo": "Please list any prescription medications, over-the-counter medications, vitamins, dietary supplements, and topical creams you are currently taking or using, including dosages.*",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search conditions…",
+            "placeholderTwo": "e.g., Aspirin 100mg, Vitamin D, or N/A",
+            "options": [
+              {
+                "label": "Heart failure",
+                "value": "Heart failure"
+              },
+              {
+                "label": "Pericarditis",
+                "value": "Pericarditis"
+              },
+              {
+                "label": "Benign Prostatic Hyperplasia",
+                "value": "Benign Prostatic Hyperplasia"
+              },
+              {
+                "label": "Liver disease",
+                "value": "Liver disease"
+              },
+              {
+                "label": "Kidney disease",
+                "value": "Kidney disease"
+              },
+              {
+                "label": "Breast cancer",
+                "value": "Breast cancer"
+              },
+              {
+                "label": "Prostate cancer",
+                "value": "Prostate cancer"
+              },
+              {
+                "label": "Blood clotting disorder",
+                "value": "Blood clotting disorder"
+              },
+              {
+                "label": "Stroke or TIA",
+                "value": "Stroke or TIA"
+              },
+              {
+                "label": "Depression or anxiety",
+                "value": "Depression or anxiety"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 4,
+      "stepTitle": "Allergies",
+      "marketingId": 11,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "",
+          "note": "This helps us understand your current concerns and design the most effective plan.",
+          "fieldName": "allergiesInfo",
+          "component": "MultiSelectWithText",
+          "required": true,
+          "props": {
+            "questionOne": "Are you allergic to any of the following? *",
+            "questionTwo": "Please list all of your known allergies. *",
+            "noteOne": "Please select all that apply.",
+            "noteTwo": "Type here, or tap N/A on right if not applicable",
+            "placeholderOne": "Type to search allergies…",
+            "placeholderTwo": "List all allergies or N/A",
+            "options": [
+              {
+                "label": "Penicillin or other antibiotics",
+                "value": "Penicillin or other antibiotics"
+              },
+              {
+                "label": "Sulfa drugs",
+                "value": "Sulfa drugs"
+              },
+              {
+                "label": "Aspirin or NSAIDs",
+                "value": "Aspirin or NSAIDs"
+              },
+              {
+                "label": "Local anesthetics",
+                "value": "Local anesthetics"
+              },
+              {
+                "label": "Latex",
+                "value": "Latex"
+              },
+              {
+                "label": "Food allergies",
+                "value": "Food allergies"
+              },
+              {
+                "label": "Environmental allergies (pollen, dust, etc.)",
+                "value": "Environmental allergies (pollen, dust, etc.)"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're taking and sensitive to",
+          "question": "Is there anything else about your condition or health that you would like your provider to know?",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "additionalHealthInfo",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Additional health information or N/A",
+            "errorMessage": "Please provide additional information or write N/A",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 5,
+      "stepTitle": "Verification",
+      "marketingId": 12,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, we just need a couple more things.",
+          "caption": "We need to verify your identity and understand how you'd like to connect with your provider",
+          "fieldName": "consultationPreference",
+          "component": "ConsultationPreference",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, let's double-check that we have everything. Once we do, we’re all set to go!",
+          "fieldName": "userDetails",
+          "component": "UserDetails",
+          "required": true,
+          "props": {
+            "basicInfoFieldName": "basicInfo"
+          }
+        }
+      ]
+    }
+  ],
+  "conditionTypes": {
+    "equals": "Check if field value equals specified value",
+    "notEquals": "Check if field value does not equal specified value",
+    "hasLength": "Check if array/string has length greater than 0",
+    "isEmpty": "Check if field is empty/null/undefined",
+    "isNotEmpty": "Check if field has a value",
+    "contains": "Check if array contains specified value",
+    "greaterThan": "Check if numeric value is greater than specified value",
+    "lessThan": "Check if numeric value is less than specified value"
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "steps": [
+    {
+      "stepId": 1,
+      "stepTitle": "Goal",
+      "marketingId": null,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Tell us a little about yourself!",
+          "caption": "Let's start with your basic details",
+          "question": "",
+          "fieldName": "basicInfo",
+          "component": "BasicInfo",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, let's start with the basics.",
+          "caption": "Let's talk about how your age, height, and weight come into play here.",
+          "question": "What are your age, height, and weight?",
+          "fieldName": "bmiCalculation",
+          "component": "BMICalculator",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}, what brings you to NAD+?",
+          "caption": "Tell us what you're hoping to improve with NAD+ treatment.",
+          "question": "Why are you interested in NAD Injections?",
+          "fieldName": "nadInterestReasons",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select all that apply",
+            "options": [
+              {
+                "label": "Faster Recovery",
+                "value": "Faster Recovery"
+              },
+              {
+                "label": "Increase Energy",
+                "value": "Increase Energy"
+              },
+              {
+                "label": "Increase Physical Endurance",
+                "value": "Increase Physical Endurance"
+              },
+              {
+                "label": "Improve Cognitive Function",
+                "value": "Improve Cognitive Function"
+              },
+              {
+                "label": "Improve Mood",
+                "value": "Improve Mood"
+              },
+              {
+                "label": "Longevity Benefits",
+                "value": "Longevity Benefits"
+              },
+              {
+                "label": "Improve Fertility",
+                "value": "Improve Fertility"
+              },
+              {
+                "label": "Other",
+                "value": "Other"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 2,
+      "stepTitle": "Health",
+      "marketingId": 13,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "A quick check on your overall health, {userName}",
+          "caption": "A few details help your provider assess whether NAD+ is right for you.",
+          "question": "Which of the following apply to your reproductive status?",
+          "fieldName": "reproductiveStatus",
+          "component": "Dropdown",
+          "required": true,
+          "props": {
+            "placeholder": "Select the option that best describes you",
+            "options": [
+              {
+                "label": "I am not currently pregnant nor breastfeeding.",
+                "value": "I am not currently pregnant nor breastfeeding."
+              },
+              {
+                "label": "I am currently pregnant or breastfeeding.",
+                "value": "I am currently pregnant or breastfeeding."
+              },
+              {
+                "label": "I plan to become pregnant or breastfeed within the next 6 months.",
+                "value": "I plan to become pregnant or breastfeed within the next 6 months."
+              },
+              {
+                "label": "I am currently going through menopause.",
+                "value": "I am currently going through menopause."
+              },
+              {
+                "label": "I had a hysterectomy or am post-menopausal.",
+                "value": "I had a hysterectomy or am post-menopausal."
+              },
+              {
+                "label": "I am male.",
+                "value": "I am male."
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "A quick check on your overall health, {userName}",
+          "caption": "A few details help your provider assess whether NAD+ is right for you.",
+          "question": "Do you have any one of the following medical conditions?",
+          "fieldName": "currentMedicalConditions",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select all that apply",
+            "options": [
+              {
+                "label": "Diabetes",
+                "value": "Diabetes"
+              },
+              {
+                "label": "Hypertension (high blood pressure)",
+                "value": "Hypertension (high blood pressure)"
+              },
+              {
+                "label": "Thyroid condition",
+                "value": "Thyroid condition"
+              },
+              {
+                "label": "Asthma or COPD",
+                "value": "Asthma or COPD"
+              },
+              {
+                "label": "Anxiety or depression",
+                "value": "Anxiety or depression"
+              },
+              {
+                "label": "HIV or AIDS",
+                "value": "HIV or AIDS"
+              },
+              {
+                "label": "Kidney disease",
+                "value": "Kidney disease"
+              },
+              {
+                "label": "Cancer",
+                "value": "Cancer"
+              },
+              {
+                "label": "Arrhythmia or irregular heart beat",
+                "value": "Arrhythmia or irregular heart beat"
+              },
+              {
+                "label": "Vascular disease (stroke, blood clots, etc)",
+                "value": "Vascular disease (stroke, blood clots, etc)"
+              },
+              {
+                "label": "Heart failure",
+                "value": "Heart failure"
+              },
+              {
+                "label": "Gallbladder disease",
+                "value": "Gallbladder disease"
+              },
+              {
+                "label": "Liver disease",
+                "value": "Liver disease"
+              },
+              {
+                "label": "None of the above",
+                "value": "None of the above"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "Lifestyle check-in, {userName}",
+          "caption": "A few lifestyle details help your provider personalize your care plan.",
+          "question": "Do you currently smoke?",
+          "fieldName": "smokingStatus",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/no.svg",
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "Your primary care provider",
+          "caption": "It's helpful to know if you have a doctor overseeing your general health.",
+          "question": "Do you have a primary care provider?",
+          "note": "We highly recommend general check-ups as part of your ongoing health and wellness plan. You can share their name or just write 'Yes' or 'No'.",
+          "fieldName": "primaryCareProvider",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Enter details about your primary care provider",
+            "errorMessage": "Please tell us if you have a primary care provider.",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 3,
+      "stepTitle": "Medication",
+      "marketingId": 14,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Current medications check-in",
+          "caption": "Your provider needs to know what you're currently taking to keep you safe.",
+          "question": "Please list all your current medications, including prescription, over-the-counter, and supplements, including dosages.",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "currentMedications",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "List all current medications and dosages (or type 'N/A')",
+            "errorMessage": "Please list your current medications or type 'N/A'.",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 4,
+      "stepTitle": "Allergies",
+      "marketingId": null,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Allergies check, {userName}",
+          "caption": "We want to avoid anything that could cause a bad reaction.",
+          "question": "Please list all of your known allergies.",
+          "note": "This includes medicines, supplements, food, dyes, or anything else. Type 'N/A' if none.",
+          "fieldName": "allergies",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "List all known allergies (or type 'N/A')",
+            "errorMessage": "Please list your known allergies or type 'N/A'.",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 5,
+      "stepTitle": "Experience",
+      "marketingId": 15,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Have you used NAD+ before, {userName}?",
+          "caption": "Knowing your past experience with NAD+ helps us plan safely and effectively.",
+          "question": "Have you ever used NAD+ by patch, IV infusion, injection or nasal spray?",
+          "fieldName": "hasUsedNAD",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/yes.svg",
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Tell us about your past NAD+ experience",
+          "caption": "Share any reactions, side effects, or benefits you noticed.",
+          "question": "Please describe and include any reactions, side effects and/or benefits you may have experienced.",
+          "note": "If you've never used NAD+ before, you can simply write 'N/A'.",
+          "fieldName": "nadExperience",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Describe your experience (or type 'N/A')",
+            "errorMessage": "Please describe your NAD+ experience or type 'N/A'.",
+            "allowNA": true
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "Are you comfortable self-injecting NAD+?",
+          "caption": "Some people prefer patches or sprays instead of self-injections.",
+          "question": "Do you feel comfortable drawing up the NAD+ solution and injecting yourself using an insulin-sized needle and syringe?",
+          "fieldName": "comfortableWithSelfInjection",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              {
+                "icon": "/icons/yes.svg",
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "If injections make you uneasy...",
+          "caption": "There may be alternatives like patches or nasal sprays.",
+          "question": "You may want to consider an alternative approach to administering NAD+, such as patches or nasal sprays. If not, describe why you wish to proceed with the injection despite your discomfort with administering your own injection.",
+          "note": "You can also mention if you're open to other administration methods.",
+          "fieldName": "injectionConcerns",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Describe your preferences or concerns",
+            "errorMessage": "Please share your thoughts or concerns, or type 'N/A'.",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "comfortableWithSelfInjection",
+            "condition": "equals",
+            "value": "No"
+          }
+        },
+        {
+          "subStepId": 5,
+          "heading": "Anything else your prescriber should know?",
+          "caption": "This is your space to share any additional details about your health.",
+          "question": "Please list anything else you want your prescriber to know about your condition or health.",
+          "note": "Write 'N/A' if you have nothing else to add.",
+          "fieldName": "additionalHealthInfo",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Add any extra information (or type 'N/A')",
+            "errorMessage": "Please add any extra information or type 'N/A'.",
+            "allowNA": true
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 6,
+      "stepTitle": "Verification",
+      "marketingId": 16,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, we just need a couple more things.",
+          "caption": "We need to understand how you'd like to connect with your provider",
+          "fieldName": "consultationPreference",
+          "component": "ConsultationPreference",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, let's double-check that we have everything. Once we do, we're all set to go!",
+          "fieldName": "userDetails",
+          "component": "UserDetails",
+          "required": true,
+          "props": {
+            "basicInfoFieldName": "basicInfo"
+          }
+        }
+      ]
+    }
+  ],
+  "conditionTypes": {
+    "equals": "Check if field value equals specified value",
+    "notEquals": "Check if field value does not equal specified value",
+    "hasLength": "Check if array/string has length greater than 0",
+    "isEmpty": "Check if field is empty/null/undefined",
+    "isNotEmpty": "Check if field has a value",
+    "contains": "Check if array contains specified value",
+    "greaterThan": "Check if numeric value is greater than specified value",
+    "lessThan": "Check if numeric value is less than specified value"
+  }
+}

@@ -1,0 +1,605 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   Font Face Declarations
+   ========================================================================== */
+
+/* LTRemark Font Family */
+@font-face {
+  font-family: 'LTRemark';
+  src: url('~/assets/fonts/LTRemark-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LTRemark';
+  src: url('~/assets/fonts/LTRemark-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LTRemark';
+  src: url('~/assets/fonts/LTRemark-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LTRemark';
+  src: url('~/assets/fonts/LTRemark-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LTRemark';
+  src: url('~/assets/fonts/LTRemark-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LTRemark';
+  src: url('~/assets/fonts/LTRemark-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Mont Font Family */
+@font-face {
+  font-family: 'Mont';
+  src: url('~/assets/fonts/Mont-Book.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('~/assets/fonts/Mont-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('~/assets/fonts/Mont-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('~/assets/fonts/Mont-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Theme variables (colors, fonts, sizes, weights, containers, delays)
+   ========================================================================== */
+@theme {
+  /* Color palette - All hex values standardized to lowercase */
+  --color-primary: #ff8159;
+  --color-primary-light: #ffb8a0;
+  --color-primary-light-1: #ffa080;
+  --color-primary-light-2: #ffc8b0;
+  --color-primary-light-3: #ffd8c8;
+  --color-primary-light-4: #ffe8e0;
+  --color-primary-light-5: #fff4f0;
+  --color-primary-dark-1: #ff81590d;
+  --color-primary-dark-2: #ff815914;
+  --color-primary-dark-3: #ff81591a;
+  --color-primary-dark-4: #ff815933;
+  --color-primary-dark-5: #ff815938;
+  --color-primary-dark-6: #ff81594d;
+  --color-primary-dark-7: #ff815980;
+  --color-primary-dark-8: #e5673f;
+
+  /* Secondary color */
+  --color-secondary: #b7d4fe;
+  --color-secondary-dark: #2563eb;
+  --color-secondary-muted: #7b9eb8;
+  --color-secondary-soft: #a8b5c4;
+
+  /* Tertiary and Form */
+  --color-tertiary-light-2: #fff5f1;
+
+  /* Neutral grays */
+  --color-gray-1: #1c1c1c;
+  --color-gray-2: #383838;
+  --color-gray-3: #3f3f3f;
+  --color-gray-4: #717182;
+  --color-gray-5: #8d8d8d;
+  --color-gray-6: #ababab;
+  --color-gray-7: #d1d5dc;
+  --color-gray-8: #e3e3e3;
+  --color-gray-9: #f3f3f5;
+  --color-gray-10: #fafafa;
+  --color-gray-11: #6d6d6d;
+
+  /* ---- Added missing neutral / supporting tones ---- */
+  --color-gray-overlay-50: #0a0a0a80;
+  --color-gray-border-light: #d1d5dc;
+  --color-gray-border-dark: #e0e0e0;
+  --color-gray-accent-dark: #4a5565;
+
+  /* --- Orange / Warm Accent Palette --- */
+  --color-accent-bg-light: #fffbeb;
+  --color-accent-dark: #7b3306;
+  --color-accent-yellow: #fee685;
+  --color-accent-cream: #ffeebe;
+  --color-accent-orange: #e17100;
+  --color-accent-deep: #bb4d00;
+  --color-accent-tag: #ffa52f;
+  --color-accent-clay: #c9b8b4;
+  --color-accent-sand: #d4a99a;
+
+  /* --- Additional System Neutrals --- */
+  --color-border-base: #e5e7eb;
+  --color-background-muted: #f3f4f6;
+  --color-icon-inactive: #99a1af;
+
+  /* Whites & Blacks */
+  --color-background: #ffffff;
+  --color-white-dark-1: #ffffff4d; /* 30% opacity white overlay */
+  --color-white-dark-2: #ffffff33; /* 20% opacity white overlay */
+  --color-white-dark-3: #ffffff66; /* 40% opacity white overlay */
+  --color-white-dark-4: #ffffffcc; /* 80% opacity white overlay */
+  --color-black: #000000;
+  --color-green: #0d542b;
+
+  /* Fonts */
+  --font-domine: 'LTRemark', serif;
+  --font-lora: 'Mont', sans-serif;
+
+  /* Font Sizes — Cleaned, Balanced, and Mapped from Real Usage */
+  --text-base: 1rem; /* 16px — base font size for inputs and form fields (prevents mobile zoom) */
+
+  --text-h1: 3.25rem; /* 52px — main hero heading */
+  --text-h2: 2.25rem; /* 36px — large section heading */
+  --text-h3: 1.75rem; /* 28px — sub-section heading */
+  --text-h4: 1.5rem; /* 24px — small heading / intro titles */
+  --text-h5: 1.25rem; /* 20px — small highlights or callouts */
+  --text-h6: 1.125rem; /* 18px — supporting heading / inline title */
+
+  --text-subtitle1: 1rem; /* 16px — default body title or label */
+  --text-subtitle2: 0.9375rem; /* 15px — slightly smaller subtitle */
+  --text-body1: 1rem; /* 16px — main paragraph body */
+  --text-body2: 0.875rem; /* 14px — secondary paragraph text */
+  --text-caption: 0.75rem; /* 12px — fine print / small captions */
+
+  /* Font weights */
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Animation delays */
+  --animate-delay-100: 100ms;
+  --animate-delay-200: 200ms;
+  --animate-delay-300: 300ms;
+  --animate-delay-400: 400ms;
+  --animate-delay-500: 500ms;
+  --animate-delay-700: 700ms;
+  --animate-delay-900: 900ms;
+  --animate-delay-1100: 1100ms;
+  --animate-delay-1400: 1400ms;
+
+  /* Border radius */
+  --radius-input: 10px;
+}
+
+/* ========================================================================== 
+   Base layer
+   ========================================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-lora);
+    font-size: var(--text-body1);
+    font-weight: var(--font-weight-regular);
+    line-height: calc(100% + 4px);
+    color: var(--color-gray-1);
+    background-color: var(--color-background);
+  }
+}
+
+/* ========================================================================== 
+   Utilities layer
+   ========================================================================== */
+@layer utilities {
+  /* Typography */
+  .h1,
+  .sm\:h1,
+  .md\:h1,
+  .lg\:h1,
+  .xl\:h1 {
+    font-family: var(--font-domine);
+    font-size: var(--text-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: calc(100% + 6px);
+  }
+
+  .h2,
+  .sm\:h2,
+  .md\:h2,
+  .lg\:h2,
+  .xl\:h2 {
+    font-family: var(--font-lora);
+    font-size: var(--text-h2);
+    font-weight: var(--font-weight-semibold);
+    line-height: calc(100% + 6px);
+  }
+
+  .h3,
+  .sm\:h3,
+  .md\:h3,
+  .lg\:h3,
+  .xl\:h3 {
+    font-family: var(--font-lora);
+    font-size: var(--text-h3);
+    font-weight: var(--font-weight-semibold);
+    line-height: calc(100% + 6px);
+  }
+
+  .h4,
+  .sm\:h4,
+  .md\:h4,
+  .lg\:h4,
+  .xl\:h4 {
+    font-family: var(--font-lora);
+    font-size: var(--text-h4);
+    font-weight: var(--font-weight-medium);
+    line-height: calc(100% + 4px);
+  }
+
+  .h5,
+  .sm\:h5,
+  .md\:h5,
+  .lg\:h5,
+  .xl\:h5 {
+    font-family: var(--font-lora);
+    font-size: var(--text-h5);
+    font-weight: var(--font-weight-medium);
+    line-height: calc(100% + 4px);
+  }
+
+  .h6,
+  .sm\:h6,
+  .md\:h6,
+  .lg\:h6,
+  .xl\:h6 {
+    font-family: var(--font-lora);
+    font-size: var(--text-h6);
+    font-weight: var(--font-weight-medium);
+    line-height: calc(100% + 4px);
+  }
+
+  /* Base font size for inputs - prevents mobile zoom on iOS */
+  .text-base-input,
+  .input-text-base {
+    font-size: var(--text-base);
+  }
+
+  .subtitle1,
+  .sm\:subtitle1,
+  .md\:subtitle1,
+  .lg\:subtitle1,
+  .xl\:subtitle1 {
+    font-size: var(--text-subtitle1);
+    font-weight: var(--font-weight-regular);
+    line-height: calc(100% + 4px);
+  }
+
+  .subtitle2,
+  .sm\:subtitle2,
+  .md\:subtitle2,
+  .lg\:subtitle2,
+  .xl\:subtitle2 {
+    font-size: var(--text-subtitle2);
+    font-weight: var(--font-weight-medium);
+    line-height: calc(100% + 4px);
+  }
+
+  .body1,
+  .sm\:body1,
+  .md\:body1,
+  .lg\:body1,
+  .xl\:body1 {
+    font-size: var(--text-body1);
+    font-weight: var(--font-weight-regular);
+    line-height: calc(100% + 4px);
+  }
+
+  .body2,
+  .sm\:body2,
+  .md\:body2,
+  .lg\:body2,
+  .xl\:body2 {
+    font-size: var(--text-body2);
+    font-weight: var(--font-weight-regular);
+    line-height: calc(100% + 4px);
+  }
+
+  .caption,
+  .sm\:caption,
+  .md\:caption,
+  .lg\:caption,
+  .xl\:caption {
+    font-size: var(--text-caption);
+    font-weight: var(--font-weight-regular);
+    line-height: calc(100% + 2px);
+  }
+
+  @media (min-width: 640px) {
+    .sm\:h1 {
+      font-size: var(--text-h1);
+    }
+    .sm\:h2 {
+      font-size: var(--text-h2);
+    }
+    .sm\:h3 {
+      font-size: var(--text-h3);
+    }
+    .sm\:h4 {
+      font-size: var(--text-h4);
+    }
+    .sm\:h5 {
+      font-size: var(--text-h5);
+    }
+    .sm\:h6 {
+      font-size: var(--text-h6);
+    }
+    .sm\:subtitle1 {
+      font-size: var(--text-subtitle1);
+    }
+    .sm\:subtitle2 {
+      font-size: var(--text-subtitle2);
+    }
+    .sm\:body1 {
+      font-size: var(--text-body1);
+    }
+    .sm\:body2 {
+      font-size: var(--text-body2);
+    }
+    .sm\:caption {
+      font-size: var(--text-caption);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:h1 {
+      font-size: var(--text-h1);
+    }
+    .md\:h2 {
+      font-size: var(--text-h2);
+    }
+    .md\:h3 {
+      font-size: var(--text-h3);
+    }
+    .md\:h4 {
+      font-size: var(--text-h4);
+    }
+    .md\:h5 {
+      font-size: var(--text-h5);
+    }
+    .md\:h6 {
+      font-size: var(--text-h6);
+    }
+    .md\:subtitle1 {
+      font-size: var(--text-subtitle1);
+    }
+    .md\:subtitle2 {
+      font-size: var(--text-subtitle2);
+    }
+    .md\:body1 {
+      font-size: var(--text-body1);
+    }
+    .md\:body2 {
+      font-size: var(--text-body2);
+    }
+    .md\:caption {
+      font-size: var(--text-caption);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:h1 {
+      font-size: var(--text-h1);
+    }
+    .lg\:h2 {
+      font-size: var(--text-h2);
+    }
+    .lg\:h3 {
+      font-size: var(--text-h3);
+    }
+    .lg\:h4 {
+      font-size: var(--text-h4);
+    }
+    .lg\:h5 {
+      font-size: var(--text-h5);
+    }
+    .lg\:h6 {
+      font-size: var(--text-h6);
+    }
+    .lg\:subtitle1 {
+      font-size: var(--text-subtitle1);
+    }
+    .lg\:subtitle2 {
+      font-size: var(--text-subtitle2);
+    }
+    .lg\:body1 {
+      font-size: var(--text-body1);
+    }
+    .lg\:body2 {
+      font-size: var(--text-body2);
+    }
+    .lg\:caption {
+      font-size: var(--text-caption);
+    }
+  }
+
+  /* Animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  .delay-100 {
+    animation-delay: var(--animate-delay-100);
+  }
+  .delay-200 {
+    animation-delay: var(--animate-delay-200);
+  }
+  .delay-300 {
+    animation-delay: var(--animate-delay-300);
+  }
+  .delay-400 {
+    animation-delay: var(--animate-delay-400);
+  }
+  .delay-500 {
+    animation-delay: var(--animate-delay-500);
+  }
+  .delay-700 {
+    animation-delay: var(--animate-delay-700);
+  }
+  .delay-900 {
+    animation-delay: var(--animate-delay-900);
+  }
+  .delay-1100 {
+    animation-delay: var(--animate-delay-1100);
+  }
+  .delay-1400 {
+    animation-delay: var(--animate-delay-1400);
+  }
+
+  /* ==========================================================================
+     Custom Scrollbar Styles
+     ========================================================================== */
+
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-gray-10);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-6);
+    border-radius: 10px;
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--color-primary-dark-5);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    /* scrollbar-color: var(--color-gray-6) var(--color-gray-10); */
+    scrollbar-color: transparent transparent;
+  }
+
+  /* Firefox hover effect (limited support) */
+  *:hover {
+    scrollbar-color: var(--color-primary-light) transparent;
+  }
+
+  /* Border radius utility */
+  .rounded-input {
+    border-radius: var(--radius-input);
+  }
+
+  /* Icon color filters */
+  .icon-primary {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(85%) saturate(1000%)
+      hue-rotate(334deg) brightness(100%) contrast(101%);
+  }
+
+  .icon-white {
+    filter: brightness(0) invert(1);
+  }
+
+  .icon-gray {
+    filter: brightness(0) saturate(100%) invert(39%) sepia(0%) saturate(0%)
+      hue-rotate(169deg) brightness(95%) contrast(87%);
+  }
+
+  /* Hover effects for icons */
+  .hover\:icon-primary:hover {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(85%) saturate(1000%)
+      hue-rotate(334deg) brightness(100%) contrast(101%);
+  }
+
+  .group:hover .group-hover\:icon-primary {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(85%) saturate(1000%)
+      hue-rotate(334deg) brightness(100%) contrast(101%);
+  }
+}

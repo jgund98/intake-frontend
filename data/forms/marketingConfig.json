@@ -1,0 +1,247 @@
+{
+  "marketingSlides": [
+    {
+      "id": 1,
+      "badgeText": "Research-based weight loss",
+      "heading": "Transform Your Health Journey",
+      "statLabel": "10K Patients",
+      "statDescription": "who trusted us for their weight loss journey",
+      "component": "BeforeAfterCard",
+      "props": {
+        "backgroundImage": "/images/marketing-background-1.png",
+        "beforeImage": "/images/before-weightloss.png",
+        "afterImage": "/images/after-weightloss.png",
+        "beforeAlt": "Before transformation",
+        "afterAlt": "After transformation"
+      }
+    },
+    {
+      "id": 2,
+      "badgeText": "Board-certified providers",
+      "heading": "Expert Care, Delivered",
+      "statLabel": "Team of 10+",
+      "statDescription": "Expert Doctors for Your Care",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/weightloss-1.png",
+        "backgroundImage": "/images/marketing-background-2.png"
+      }
+    },
+    {
+      "id": 3,
+      "badgeText": "Clinically proven medications",
+      "heading": "Science-Backed Results",
+      "statLabel": "93% Patients",
+      "statDescription": "Who Achieve Satisfaction Through Evidence-Based Practices",
+      "component": "ImageCard",
+      "props": {
+        "image": "/images/weightloss-graph.png",
+        "backgroundImage": "/images/marketing-background-3.png"
+      }
+    },
+    {
+      "id": 4,
+      "badgeText": "Medication delivered to your door",
+      "heading": "Convenient & Affordable",
+      "statLabel": "28% Budget Friendly",
+      "statDescription": "Care for Everyone",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/weightloss-2.png",
+        "backgroundImage": "/images/marketing-background-4.png"
+      }
+    },
+    {
+      "id": 5,
+      "badgeText": "Evidence-based Skin Care solutions",
+      "heading": "Transform Your Skin Care Journey",
+      "statLabel": "10K Patients",
+      "statDescription": "Join a community of cheerful patients.",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/skin-care-1.png",
+        "backgroundImage": "/images/marketing-background-5.png"
+      }
+    },
+    {
+      "id": 6,
+      "badgeText": "Board-certified providers",
+      "heading": "Expert Care, just for you",
+      "statLabel": "Team of 10+",
+      "statDescription": "Expert Doctors for Your Care",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/skin-care-2.png",
+        "backgroundImage": "/images/marketing-background-6.png"
+      }
+    },
+    {
+      "id": 7,
+      "badgeText": "Clinically proven medications",
+      "heading": "Science-Backed Results",
+      "statLabel": "93% Patients",
+      "statDescription": "Who Achieve Satisfaction Through Evidence-Based Practices",
+      "component": "ImageCard",
+      "props": {
+        "image": "/images/skincare-graph.png",
+        "backgroundImage": "/images/marketing-background-7.png"
+      }
+    },
+    {
+      "id": 8,
+      "badgeText": "Medication delivered to your door",
+      "heading": "Convenient & Affordable",
+      "statLabel": "28% Budget Friendly",
+      "statDescription": "Care for Everyone",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/skin-care-3.png",
+        "backgroundImage": "/images/marketing-background-8.png"
+      }
+    },
+    {
+      "id": 9,
+      "badgeText": "Evidence-based Hair Growth solutions",
+      "heading": "Transform Your Hair Care Journey",
+      "statLabel": "10K Patients",
+      "statDescription": "Join a community of cheerful patients.",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/hair-1.png",
+        "backgroundImage": "/images/marketing-background-9.png"
+      }
+    },
+    {
+      "id": 10,
+      "badgeText": "Board-certified providers",
+      "heading": "Expert Care, just for you",
+      "statLabel": "Team of 10+",
+      "statDescription": "Expert Doctors for Your Care",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/hair-2.png",
+        "backgroundImage": "/images/marketing-background-10.png"
+      }
+    },
+    {
+      "id": 11,
+      "badgeText": "Clinically proven medications",
+      "heading": "Science-Backed Results",
+      "statLabel": "93% Patients",
+      "statDescription": "Who Achieve Satisfaction Through Evidence-Based Practices",
+      "component": "ImageCard",
+      "props": {
+        "image": "/images/hairgrowth-graph.png",
+        "backgroundImage": "/images/marketing-background-11.png"
+      }
+    },
+    {
+      "id": 12,
+      "badgeText": "Medication delivered to your door",
+      "heading": "Convenient & Affordable",
+      "statLabel": "28% Budget Friendly",
+      "statDescription": "Care for Everyone",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/hair-3.png",
+        "backgroundImage": "/images/marketing-background-11.png"
+      }
+    },
+    {
+      "id": 13,
+      "badgeText": "Evidence-based Longevity therapies",
+      "heading": "Optimize Your Healthspan",
+      "statLabel": "10K+ Patients",
+      "statDescription": "Supporting long-term vitality and wellness.",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/wellness-1.png",
+        "backgroundImage": "/images/marketing-background-9.png"
+      }
+    },
+    {
+      "id": 14,
+      "badgeText": "Board-certified providers",
+      "heading": "Personalized Longevity Care",
+      "statLabel": "Team of 10+",
+      "statDescription": "Expert clinicians guiding your longevity journey",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/wellness-2.png",
+        "backgroundImage": "/images/marketing-background-10.png"
+      }
+    },
+    {
+      "id": 15,
+      "badgeText": "Clinically supported NAD+ therapy",
+      "heading": "Science-Driven Cellular Support",
+      "statLabel": "90% Patients",
+      "statDescription": "Report improved energy, focus, and overall wellbeing",
+      "component": "ImageCard",
+      "props": {
+        "image": "/images/welness-graph.png",
+        "backgroundImage": "/images/marketing-background-11.png"
+      }
+    },
+    {
+      "id": 16,
+      "badgeText": "Therapy delivered to your door",
+      "heading": "Simple, Accessible Longevity Care",
+      "statLabel": "Flexible Plans",
+      "statDescription": "Designed to fit your lifestyle and goals",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/wellness-3.png",
+        "backgroundImage": "/images/marketing-background-11.png"
+      }
+    },
+    {
+      "id": 17,
+      "badgeText": "Evidence-based Men's Health solutions",
+      "heading": "Reclaim Your Confidence",
+      "statLabel": "10K+ Men",
+      "statDescription": "Trust us for their wellness journey",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/mens-1.png",
+        "backgroundImage": "/images/marketing-background-9.png"
+      }
+    },
+    {
+      "id": 18,
+      "badgeText": "Board-certified providers",
+      "heading": "Expert Care for Men",
+      "statLabel": "Team of 10+",
+      "statDescription": "Specialized doctors for your health needs",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/mens-2.png",
+        "backgroundImage": "/images/marketing-background-10.png"
+      }
+    },
+    {
+      "id": 19,
+      "badgeText": "Clinically proven treatments",
+      "heading": "Science-Backed Solutions",
+      "statLabel": "95% Patients",
+      "statDescription": "Experience improved vitality and performance",
+      "component": "ImageCard",
+      "props": {
+        "image": "/images/menshealth-graph.png",
+        "backgroundImage": "/images/marketing-background-11.png"
+      }
+    },
+    {
+      "id": 20,
+      "badgeText": "Discreet delivery to your door",
+      "heading": "Private & Convenient Care",
+      "statLabel": "Affordable Plans",
+      "statDescription": "Tailored to your lifestyle and budget",
+      "component": "FrameCard",
+      "props": {
+        "image": "/images/mens-3.png",
+        "backgroundImage": "/images/marketing-background-11.png"
+      }
+    }
+  ]
+}
