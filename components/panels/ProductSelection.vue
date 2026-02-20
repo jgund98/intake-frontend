@@ -489,7 +489,10 @@ const handleContinueClick = () => {
     </ClientOnly>
 
     <!-- Navigation Buttons -->
-    <div class="flex items-center justify-end gap-4 mt-4">
+    <div
+      class="flex items-center justify-end gap-4 mt-4 custom-swiper-nav"
+      :data-count="productGroups.length"
+    >
       <button
         class="group w-10 h-10 rounded-full border border-primary/30 bg-primary/10 flex items-center justify-center transition-all duration-200 hover:bg-primary cursor-pointer"
         @click="slidePrev"
@@ -667,6 +670,29 @@ const handleContinueClick = () => {
 
 <style scoped>
 /* Product Swiper - Equal Height Slides */
+/* Disable slider buttons when all products are visible */
+.custom-swiper-nav[data-count='0'],
+.custom-swiper-nav[data-count='1'] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Tablet (640px+): shows 2 slides. Disable if 2 or fewer products */
+@media (min-width: 640px) {
+  .custom-swiper-nav[data-count='2'] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+/* Desktop (768px+): shows 3 slides. Disable if 3 or fewer products */
+@media (min-width: 768px) {
+  .custom-swiper-nav[data-count='3'] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
 .product-swiper {
   display: flex;
   align-items: stretch;
