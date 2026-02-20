@@ -290,7 +290,7 @@ watch(
 
     <!-- Consent Section -->
     <div
-      class="flex flex-col gap-4 p-4 md:p-6 rounded-2xl bg-yellow-50 border-2 border-accent-yellow text-accent-dark"
+      class="flex flex-col gap-4 p-4 md:p-6 rounded-2xl bg-yellow-50 text-accent-dark"
     >
       <h3 class="font-semibold subtitle1">
         Please attest to the following confirming that all information you have
@@ -298,7 +298,7 @@ watch(
         submit this form.
       </h3>
       <label
-        class="flex items-start gap-3 cursor-pointer p-3 bg-white rounded-xl border-2 transition-all"
+        class="flex items-start gap-3 cursor-pointer p-3 bg-white rounded-xl transition-all"
         :class="
           formData.consent
             ? 'border-yellow-300 bg-primary-dark-2'

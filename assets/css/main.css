@@ -90,26 +90,29 @@
    Theme variables (colors, fonts, sizes, weights, containers, delays)
    ========================================================================== */
 @theme {
- --color-primary: #0F3325;
-  --color-primary-light: #6CBF86; /* Mapped to Soft Green */
-  --color-primary-light-1: #254d3d; /* Bridge between Dark and Soft */
-  --color-primary-light-2: #3d6b56;
-  --color-primary-light-3: #6CBF86;
-  --color-primary-light-4: #c9e8d6;
-  --color-primary-light-5: #eff7f3; /* Very pale green for backgrounds */
-  
-  /* Primary Opacities (Based on Dark Green #0F3325) */
-  --color-primary-dark-1: #0F33250d;
-  --color-primary-dark-2: #0F332514;
-  --color-primary-dark-3: #0F33251a;
-  --color-primary-dark-4: #0F332533;
-  --color-primary-dark-5: #0F332538;
-  --color-primary-dark-6: #0F33254d;
-  --color-primary-dark-7: #0F332580;
-  --color-primary-dark-8: #051a12; /* Deepest Green */
+  /* --- Primary: Lightened/Softened from #0F3325 to #2D5A47 --- */
+  --color-primary: #2d5a47;
+  --color-primary-light: #6cbf86;
 
-  /* Secondary color - Now Soft Green (#6CBF86) */
-  --color-secondary: #6CBF86;
+  /* Bridges adjusted for the new primary */
+  --color-primary-light-1: #3d6e59;
+  --color-primary-light-2: #4f826b;
+  --color-primary-light-3: #6cbf86;
+  --color-primary-light-4: #c9e8d6;
+  --color-primary-light-5: #eff7f3;
+
+  /* Primary Opacities (Based on New Primary #2D5A47) */
+  --color-primary-dark-1: #2d5a470d;
+  --color-primary-dark-2: #2d5a4714;
+  --color-primary-dark-3: #2d5a471a;
+  --color-primary-dark-4: #2d5a4733;
+  --color-primary-dark-5: #2d5a4738;
+  --color-primary-dark-6: #2d5a474d;
+  --color-primary-dark-7: #2d5a4780;
+  --color-primary-dark-8: #1b3d2f; /* Softened Deepest Green */
+
+  /* Secondary color - Soft Green (#6CBF86) */
+  --color-secondary: #6cbf86;
   --color-secondary-dark: #569e6e;
   --color-secondary-muted: #9ccdb0;
   --color-secondary-soft: #ccebd9;
@@ -117,7 +120,7 @@
   /* Tertiary and Form */
   --color-tertiary-light-2: #f4fcf8;
 
-  /* Neutral grays - Updated Gray-1 to Deep Black */
+  /* Neutral grays */
   --color-gray-1: #000000;
   --color-gray-2: #1c1c1c;
   --color-gray-3: #383838;
@@ -130,36 +133,36 @@
   --color-gray-10: #fafafa;
   --color-gray-11: #6d6d6d;
 
-  /* ---- Added missing neutral / supporting tones ---- */
+  /* Supporting Tones */
   --color-gray-overlay-50: #00000080;
   --color-gray-border-light: #d1d5dc;
   --color-gray-border-dark: #e0e0e0;
-  --color-gray-accent-dark: #2f3835;
+  --color-gray-accent-dark: #3a4743; /* Lightened from 2f3835 */
 
-  /* --- Accent Palette (Adjusted to Earthy tones to fit Green) --- */
+  /* Accent Palette */
   --color-accent-bg-light: #fbfdfc;
-  --color-accent-dark: #0F3325;
-  --color-accent-yellow: #fee685; /* Kept for warnings */
+  --color-accent-dark: #2d5a47;
+  --color-accent-yellow: #fee685;
   --color-accent-cream: #f0f7f4;
-  --color-accent-orange: #e17100; /* Kept for alerts */
-  --color-accent-deep: #1e4a38;
-  --color-accent-tag: #6CBF86;
+  --color-accent-orange: #e17100;
+  --color-accent-deep: #346953;
+  --color-accent-tag: #6cbf86;
   --color-accent-clay: #c9b8b4;
   --color-accent-sand: #d4a99a;
 
-  /* --- Additional System Neutrals --- */
+  /* System Neutrals */
   --color-border-base: #e5e7eb;
   --color-background-muted: #f3f4f6;
   --color-icon-inactive: #99a1af;
 
   /* Whites & Blacks */
   --color-background: #ffffff;
-  --color-white-dark-1: #ffffff4d; /* 30% opacity white overlay */
-  --color-white-dark-2: #ffffff33; /* 20% opacity white overlay */
-  --color-white-dark-3: #ffffff66; /* 40% opacity white overlay */
-  --color-white-dark-4: #ffffffcc; /* 80% opacity white overlay */
+  --color-white-dark-1: #ffffff4d;
+  --color-white-dark-2: #ffffff33;
+  --color-white-dark-3: #ffffff66;
+  --color-white-dark-4: #ffffffcc;
   --color-black: #000000;
-  --color-green: #0F3325;
+  --color-green: #2d5a47;
   /* Fonts */
   --font-domine: 'LTRemark', serif;
   --font-lora: 'Mont', sans-serif;
@@ -579,8 +582,7 @@
 
   /* Icon color filters */
   .icon-primary {
-    filter: brightness(0) saturate(100%) invert(62%) sepia(85%) saturate(1000%)
-      hue-rotate(334deg) brightness(100%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(31%) sepia(16%) saturate(2035%) hue-rotate(104deg) brightness(96%) contrast(87%);
   }
 
   .icon-white {
@@ -594,12 +596,10 @@
 
   /* Hover effects for icons */
   .hover\:icon-primary:hover {
-    filter: brightness(0) saturate(100%) invert(62%) sepia(85%) saturate(1000%)
-      hue-rotate(334deg) brightness(100%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(31%) sepia(16%) saturate(2035%) hue-rotate(104deg) brightness(96%) contrast(87%);
   }
 
   .group:hover .group-hover\:icon-primary {
-    filter: brightness(0) saturate(100%) invert(62%) sepia(85%) saturate(1000%)
-      hue-rotate(334deg) brightness(100%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(31%) sepia(16%) saturate(2035%) hue-rotate(104deg) brightness(96%) contrast(87%);
   }
 }

@@ -80,6 +80,8 @@ const allProducts = computed(() => {
   const bundles = orgStore.orgData?.productBundles || [];
   const category = selectedCategory.value;
 
+  console.log(category, 'Here see this');
+
   // If no category selected, return all products
   if (!category) return bundles;
 
@@ -497,9 +499,10 @@ const handleContinueClick = () => {
           alt="Previous"
           width="20"
           height="20"
-          class="w-5 h-5 icon-primary group-hover:icon-white transition-all duration-200"
+          class="w-5 h-5 transition-all duration-200 group-hover:brightness-0 group-hover:invert"
         />
       </button>
+
       <button
         class="group w-10 h-10 rounded-full border border-primary/30 bg-primary/10 flex items-center justify-center transition-all duration-200 hover:bg-primary cursor-pointer"
         @click="slideNext"
@@ -509,7 +512,7 @@ const handleContinueClick = () => {
           alt="Next"
           width="20"
           height="20"
-          class="w-5 h-5 icon-primary group-hover:icon-white transition-all duration-200"
+          class="w-5 h-5 transition-all duration-200 group-hover:brightness-0 group-hover:invert"
         />
       </button>
     </div>

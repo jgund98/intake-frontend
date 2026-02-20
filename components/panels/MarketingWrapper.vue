@@ -246,20 +246,21 @@ onUnmounted(() => {
     <!-- Sidebar content -->
     <div class="relative z-10 h-full w-full overflow-x-hidden">
       <!-- Logo - Absolute at top -->
-      <div class="absolute top-10 left-10 z-20">
+      <div class="absolute top-10 left-10 z-30">
         <NuxtLink
           :to="originalDomain"
           external
           class="inline-flex items-center bg-white rounded-full px-6 py-3"
         >
           <NuxtImg
-            :src="projectLogoUrl"
+            src="/images/logo.svg"
             :alt="projectName + ' Logo'"
-            class="h-6 w-auto"
+            class="h-8 w-auto min-w-[120px] object-contain"
             loading="eager"
           />
         </NuxtLink>
       </div>
+
 
       <!-- Marketing content - Full height with sticky footer -->
       <div class="h-full flex flex-col">

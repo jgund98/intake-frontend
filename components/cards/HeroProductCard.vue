@@ -112,10 +112,9 @@ const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 .hero-card-gradient {
   background: linear-gradient(
     180deg,
-    var(--color-secondary-muted) 0%,
-    var(--color-secondary-soft) 40%,
-    var(--color-accent-clay) 70%,
-    var(--color-accent-sand) 100%
+    var(--color-primary-light) 0%,   /* Sage Green at the top */
+    var(--color-primary) 60%,        /* Transition to Forest Green */
+    var(--color-primary-dark-8) 100% /* Deepest Green at the bottom */
   );
 }
 </style>

@@ -94,7 +94,7 @@ onMounted(() => {
             alt="Go back"
             width="24"
             height="24"
-            class="w-6 h-6 xl:w-5 xl:h-5 group-hover:icon-primary transition-all duration-200"
+            class="w-6 h-6 xl:w-5 xl:h-5 transition-all duration-200 group-hover:icon-primary"
           />
           <span class="hidden xl:inline">Go back</span>
         </button>
@@ -103,7 +103,7 @@ onMounted(() => {
         <button
           v-if="!shouldHideContinueButton"
           :disabled="!canGoNext"
-          class="flex-1 min-w-0 w-0 px-6 py-3 rounded-full bg-primary text-white hover:bg-secondary disabled:bg-primary-light disabled:cursor-not-allowed transition-all duration-200 subtitle1 font-semibold flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+          class="flex-1 min-w-0 w-0 px-6 py-3 rounded-full transition-all duration-300 subtitle1 font-semibold flex items-center justify-center gap-2 shadow-lg cursor-pointer /* 1. DISABLED: Subtle Mint Tint (Lightest) */ disabled:cursor-not-allowed disabled:bg-primary-light-4 disabled:text-primary-dark-7 disabled:shadow-none /* 2. ENABLED (Idle): Mid Green (Secondary) */ not-disabled:bg-secondary not-disabled:text-white /* 3. HOVER: Darkest Green (Primary) */ hover:not-disabled:bg-primary"
           @click="handleNext"
         >
           <span>Continue</span>
@@ -112,7 +112,8 @@ onMounted(() => {
             alt="Continue"
             width="20"
             height="20"
-            class="w-5 h-5 brightness-0 invert"
+            :class="canGoNext ? 'brightness-0 invert' : 'opacity-40'"
+            class="w-5 h-5 transition-all duration-200"
           />
         </button>
       </div>
