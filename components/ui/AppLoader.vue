@@ -14,7 +14,7 @@
           />
           <div
             v-else
-            class="h-16 w-16 border-4 border-t-transparent border-orange-500 rounded-full animate-spin"
+            class="h-16 w-16 border-4 border-t-transparent border-[#4f826b] rounded-full animate-spin"
           />
         </ClientOnly>
       </div>
@@ -73,7 +73,7 @@ onMounted(async () => {
     const animData = JSON.parse(JSON.stringify(data.default || data));
 
     // Convert brand primary color to RGB
-    const brandPrimary = hexToRgb('#ff8159');
+    const brandPrimary = hexToRgb('#4f826b');
 
     // Replace all colors with brand primary
     replaceColors(animData, brandPrimary);
