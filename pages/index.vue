@@ -1,14 +1,25 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useFormStore } from '~/stores/intakeFormStore';
 import { useFormRenderer } from '~/composables/useFormRenderer';
+import { useQuizTracking } from '~/composables/useQuizTracking';
 import FormCardWrapper from '~/components/cards/FormCardWrapper.vue';
 import HeroProductCard from '~/components/cards/HeroProductCard.vue';
 import MobileMarketingWrapper from '~/components/panels/MobileMarketingWrapper.vue';
 
 const router = useRouter();
 const formStore = useFormStore();
+const { trackQuizStart } = useQuizTracking();
+const quizStarted = ref(false);
+
+// Track quiz start on initial page load (only once)
+onMounted(() => {
+  if (!quizStarted.value && !formStore.isPaymentCompleted) {
+    trackQuizStart();
+    quizStarted.value = true;
+  }
+});
 
 const {
   currentStepConfig,

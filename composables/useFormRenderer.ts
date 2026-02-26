@@ -12,6 +12,7 @@ import { useOrganizationStore } from '~/stores/organizationStore';
 // Form configuration
 import { getCurrentFormConfig } from '~/data/forms/index';
 import { useGlpTracking } from '~/composables/useGlpTracking';
+import { useQuizTracking } from '~/composables/useQuizTracking';
 
 // Types
 interface DependsOn {
@@ -111,7 +112,8 @@ const componentMap: Record<string, Component> = {
 export function useFormRenderer() {
   const formStore = useFormStore();
   const orgStore = useOrganizationStore();
-  const { trackLead } = useGlpTracking();
+  // const { trackLead } = useGlpTracking();
+  const { trackQuizStepComplete } = useQuizTracking();
 
   // Lead tracking state
   const firedLeadSteps = new Set<string>();
@@ -471,16 +473,24 @@ export function useFormRenderer() {
       if (!firedLeadSteps.has(leadStepName)) {
         firedLeadSteps.add(leadStepName);
 
-        trackLead({
-          email: leadEmail.value,
-          leadStep: leadStepName,
-          extra: {
-            stepId: completedStep.stepId,
-            subStepId: completedSubStep.subStepId,
-            stepTitle: completedStep.stepTitle,
-            marketingId: completedStep.marketingId,
-          },
-        });
+        // trackLead({
+        //   email: leadEmail.value,
+        //   leadStep: leadStepName,
+        //   extra: {
+        //     stepId: completedStep.stepId,
+        //     subStepId: completedSubStep.subStepId,
+        //     stepTitle: completedStep.stepTitle,
+        //     marketingId: completedStep.marketingId,
+        //   },
+        // });
+
+        // Track for GTM - quiz step complete
+        trackQuizStepComplete(
+          completedStep.stepId,
+          leadStepName,
+          completedStep.stepTitle,
+          completedSubStep.fieldName
+        );
       } else {
         console.log('Lead already tracked for this step, skipping');
       }
