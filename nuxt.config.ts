@@ -79,7 +79,6 @@ export default defineNuxtConfig({
       defaultCategory:
         process.env.NUXT_PUBLIC_DEFAULT_CATEGORY || 'Weight Loss',
 
-      calendlyUrl: process.env.NUXT_PUBLIC_CALENDLY_URL,
       privacyPolicy: process.env.NUXT_PUBLIC_PRIVACY_POLICY,
     },
   },

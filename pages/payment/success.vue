@@ -59,9 +59,20 @@ const projectName = computed(() => {
 // Check if payment was completed
 const isPaymentCompleted = computed(() => formStore.isPaymentCompleted);
 
-// Get Calendly URL from environment config
+const CALENDLY_URLS: Record<string, string> = {
+  KS: 'https://calendly.com/d/cw5t-mm8-zrc/ks-english-virtual-consult',
+  MS: 'https://calendly.com/d/cs78-kp4-rct/ms-english-virtual-consult',
+  NM: 'https://calendly.com/d/cs9h-6ps-dzp/nm-english-virtual-consult',
+  RI: 'https://calendly.com/d/cw62-d8q-78v/ri-english-virtual-consult',
+  WV: 'https://calendly.com/d/csj5-w66-tpb/wv-english-virtual-consult',
+};
+
+// Get Calendly URL based on selected state
 const calendlyUrl = computed(() => {
-  return config.public.calendlyUrl || '';
+  const consultationPreference = formStore.formData
+    ?.consultationPreference as any;
+  const selectedState = consultationPreference?.state;
+  return selectedState ? CALENDLY_URLS[selectedState] || '' : '';
 });
 
 // Check if user needs to schedule a Calendly appointment
