@@ -116,9 +116,15 @@ const userDetailsSchema = z.object({
     .min(1, 'Last name is required')
     .regex(/^[A-Za-z\s']+$/, 'Last name must contain only letters'),
   email: z.string().email('Invalid email address'),
-  phoneNumber: z
-    .string()
-    .refine(val => isValidPhoneNumber(val), 'Invalid phone number'),
+  phoneNumber: z.string().refine(val => {
+    if (!val || val.trim().length === 0) return false;
+    try {
+      // Only validate as US number
+      return isValidPhoneNumber(val.trim(), 'US');
+    } catch {
+      return false;
+    }
+  }, 'Please enter a valid US phone number'),
   birthDate: z.string().min(1, 'Birth date is required'),
   consent: z
     .boolean()

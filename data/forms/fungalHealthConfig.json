@@ -1,0 +1,445 @@
+{
+  "steps": [
+    {
+      "stepId": 1,
+      "stepTitle": "Goal",
+      "marketingId": null,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Tell us a little about yourself!",
+          "caption": "Let's start with your basic details",
+          "question": "",
+          "fieldName": "basicInfo",
+          "component": "BasicInfo",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}'s journey to healthier skin",
+          "caption": "Let's talk about your physical details",
+          "question": "What are your age, height, and weight?",
+          "note": "This information helps us provide personalized treatment recommendations",
+          "fieldName": "bmiCalculation",
+          "component": "BMICalculator",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}, let's talk about your health",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "Which of the following apply to you?",
+          "note": "Please select all that apply",
+          "fieldName": "pregnancyStatus",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select all that apply",
+            "options": [
+              { "label": "Are you currently pregnant", "value": "Currently pregnant" },
+              { "label": "Trying to become pregnant", "value": "Trying to become pregnant" },
+              { "label": "Currently breastfeeding", "value": "Currently breastfeeding" },
+              { "label": "None of the above", "value": "None of the above" }
+            ]
+          },
+          "dependsOn": {
+            "fieldName": "basicInfo.gender",
+            "condition": "equals",
+            "value": "female"
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "{userName}'s journey to healthier skin",
+          "caption": "Let's understand what brings you here today",
+          "question": "Which condition are you requesting treatment for?",
+          "note": "Please select all that apply",
+          "fieldName": "conditionsRequesting",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select all that apply",
+            "options": [
+              { "label": "Toenail fungus", "value": "Toenail fungus" },
+              { "label": "Fingernail fungus", "value": "Fingernail fungus" },
+              { "label": "Athlete's foot", "value": "Athlete's foot" },
+              { "label": "Ringworm", "value": "Ringworm" },
+              { "label": "Jock itch", "value": "Jock itch" },
+              { "label": "Other", "value": "Other" }
+            ]
+          }
+        },
+        {
+          "subStepId": 5,
+          "heading": "{userName}'s journey to healthier skin",
+          "caption": "Help us understand the affected areas",
+          "question": "Which areas are affected?",
+          "note": "Please select all that apply",
+          "fieldName": "affectedAreas",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select all that apply",
+            "options": [
+              { "label": "Toenails", "value": "Toenails" },
+              { "label": "Fingernails", "value": "Fingernails" },
+              { "label": "Feet", "value": "Feet" },
+              { "label": "Groin", "value": "Groin" },
+              { "label": "Body skin", "value": "Body skin" },
+              { "label": "Other", "value": "Other" }
+            ]
+          }
+        },
+        {
+          "subStepId": 6,
+          "heading": "{userName}'s journey to healthier skin",
+          "caption": "Help us understand your condition better",
+          "question": "",
+          "note": "Please provide all the information below to help us assess your condition",
+          "fieldName": "conditionDetailsWithPhotos",
+          "component": "ConditionDetailsWithUpload",
+          "required": true,
+          "props": {
+            "questionOne": "How long has this problem been present?",
+            "questionTwo": "Have you ever been told by a clinician that this is a fungal infection?",
+            "questionThree": "Please upload clear photos of the affected area(s)",
+            "noteOne": "This helps us determine the best treatment approach",
+            "noteTwo": "This helps us confirm the diagnosis",
+            "noteThree": "This helps your provider assess your condition accurately",
+            "placeholderOne": "Select duration",
+            "placeholderTwo": "Select an option",
+            "maxFiles": 5,
+            "acceptedFileTypes": "image/*",
+            "maxFileSize": 10485760,
+            "optionsOne": [
+              { "label": "Less than 3 months", "value": "Less than 3 months" },
+              { "label": "3–6 months", "value": "3–6 months" },
+              { "label": "6–12 months", "value": "6–12 months" },
+              { "label": "Over 1 year", "value": "Over 1 year" }
+            ],
+            "optionsTwo": [
+              { "label": "Yes", "value": "Yes" },
+              { "label": "No", "value": "No" },
+              { "label": "Not Sure", "value": "Not Sure" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 2,
+      "stepTitle": "Treatment",
+      "marketingId": 1,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "{userName}'s treatment history",
+          "caption": "Let's understand your treatment history",
+          "question": "",
+          "note": "This helps us understand what has or hasn't worked for you",
+          "fieldName": "treatmentHistory",
+          "component": "TwoDropdowns",
+          "required": true,
+          "props": {
+            "questionOne": "Have you used any antifungal treatments before?",
+            "questionTwo": "Have you ever taken terbinafine before?",
+            "noteOne": "This helps us understand what has or hasn't worked for you",
+            "noteTwo": "Terbinafine is a common antifungal medication",
+            "placeholderOne": "Select an option",
+            "placeholderTwo": "Select an option",
+            "optionsOne": [
+              { "label": "Yes, over-the-counter topical", "value": "Yes, over-the-counter topical" },
+              { "label": "Yes, prescription topical", "value": "Yes, prescription topical" },
+              { "label": "Yes, oral antifungal", "value": "Yes, oral antifungal" },
+              { "label": "No", "value": "No" }
+            ],
+            "optionsTwo": [
+              { "label": "Yes, oral", "value": "Yes, oral" },
+              { "label": "Yes, topical", "value": "Yes, topical" },
+              { "label": "No", "value": "No" }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}'s treatment history",
+          "caption": "Understanding your medication history",
+          "question": "Did you have any side effects from terbinafine?",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "terbinafinesSideEffects",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Please list any side effects you experienced or N/A",
+            "errorMessage": "Please provide side effects or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "treatmentHistory.fieldTwo",
+            "condition": "notEquals",
+            "value": "No"
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 3,
+      "stepTitle": "Health",
+      "marketingId": 2,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "{userName}, let's talk about your health",
+          "caption": "Knowing your health history helps us give you better and safer care",
+          "question": "Do any of these apply to you?",
+          "note": "If you don't have any medical issues, just choose None of the above from list!",
+          "fieldName": "medicalConditions",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select all that apply",
+            "options": [
+              { "label": "Liver disease or abnormal liver tests", "value": "Liver disease or abnormal liver tests" },
+              { "label": "Hepatitis (A, B, or C)", "value": "Hepatitis (A, B, or C)" },
+              { "label": "Kidney disease", "value": "Kidney disease" },
+              { "label": "Heart disease", "value": "Heart disease" },
+              { "label": "Psoriasis", "value": "Psoriasis" },
+              { "label": "Lupus", "value": "Lupus" },
+              { "label": "Blood disorders", "value": "Blood disorders" },
+              { "label": "Weakened immune system", "value": "Weakened immune system" },
+              { "label": "History of depression or significant mood changes", "value": "History of depression or significant mood changes" },
+              { "label": "None of the above", "value": "None of the above" }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "{userName}, let's talk about your current medications",
+          "caption": "This helps us avoid potential drug interactions",
+          "question": "Do you currently take any prescription medications?",
+          "note": "This is important for your safety",
+          "fieldName": "takingPrescriptionMeds",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              { "icon": "/icons/medicine.svg", "label": "Yes, I am", "value": "Yes" },
+              { "icon": "/icons/close.svg", "label": "No, I'm not", "value": "No" }
+            ]
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "{userName}, let's talk about your current medications",
+          "caption": "This helps us avoid potential drug interactions",
+          "question": "Please list all prescription medications you are currently taking",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "prescriptionMedsList",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Lisinopril 10mg, Metformin 500mg, or N/A",
+            "errorMessage": "Please provide your prescription medications or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "takingPrescriptionMeds",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "{userName}, let's talk about your current medications",
+          "caption": "This helps us avoid potential drug interactions",
+          "question": "Do you take any over-the-counter medications or supplements?",
+          "note": "This includes vitamins, herbs, and supplements",
+          "fieldName": "takingOTCSupplements",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              { "icon": "/icons/medicine.svg", "label": "Yes, I am", "value": "Yes" },
+              { "icon": "/icons/close.svg", "label": "No, I'm not", "value": "No" }
+            ]
+          }
+        },
+        {
+          "subStepId": 5,
+          "heading": "{userName}, let's talk about your current medications",
+          "caption": "This helps us avoid potential drug interactions",
+          "question": "Please list all over-the-counter medications or supplements you are taking",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "otcSupplementsList",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Vitamin D, Fish Oil, Aspirin, or N/A",
+            "errorMessage": "Please provide your OTC medications/supplements or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "takingOTCSupplements",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        },
+        {
+          "subStepId": 6,
+          "heading": "{userName}, let's talk about your health",
+          "caption": "Understanding your health history helps us provide safer, more effective care",
+          "question": "Do you drink alcohol?",
+          "note": "This is important for medication safety",
+          "fieldName": "drinksAlcohol",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              { "icon": "/icons/no.svg", "label": "Yes", "value": "Yes" },
+              { "icon": "/icons/close.svg", "label": "No", "value": "No" }
+            ]
+          }
+        },
+        {
+          "subStepId": 7,
+          "heading": "{userName}, let's talk about your health",
+          "caption": "This helps us monitor for potential liver issues",
+          "question": "Have you experienced any of the following over the last 30 days?",
+          "note": "Please select all that apply",
+          "fieldName": "recentSymptoms",
+          "component": "CheckList",
+          "required": true,
+          "props": {
+            "placeholder": "Select all that apply",
+            "options": [
+              { "label": "Unusual fatigue", "value": "Unusual fatigue" },
+              { "label": "Nausea or vomiting", "value": "Nausea or vomiting" },
+              { "label": "Dark urine", "value": "Dark urine" },
+              { "label": "Pale or light-colored stools", "value": "Pale or light-colored stools" },
+              { "label": "Yellowing of skin or eyes", "value": "Yellowing of skin or eyes" },
+              { "label": "Right-upper abdominal pain", "value": "Right-upper abdominal pain" },
+              { "label": "None of the above", "value": "None of the above" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 4,
+      "stepTitle": "Allergies",
+      "marketingId": 3,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're sensitive to",
+          "question": "Do you have any medication allergies?",
+          "note": "This is critical for your safety",
+          "fieldName": "hasMedicationAllergies",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              { "icon": "/icons/no.svg", "label": "Yes", "value": "Yes" },
+              { "icon": "/icons/close.svg", "label": "No", "value": "No" }
+            ]
+          }
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're sensitive to",
+          "question": "Please list all of your medication allergies",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "medicationAllergiesList",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "e.g., Penicillin, Sulfa drugs, or N/A",
+            "errorMessage": "Please provide your medication allergies or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "hasMedicationAllergies",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        },
+        {
+          "subStepId": 3,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're sensitive to",
+          "question": "Have you ever had a serious reaction to a medication?",
+          "note": "Such as rash, liver injury, or hospitalization",
+          "fieldName": "hasSeriousReaction",
+          "component": "BooleanSelectCard",
+          "required": true,
+          "props": {
+            "options": [
+              { "icon": "/icons/no.svg", "label": "Yes", "value": "Yes" },
+              { "icon": "/icons/close.svg", "label": "No", "value": "No" }
+            ]
+          }
+        },
+        {
+          "subStepId": 4,
+          "heading": "Hey {userName}, can you share a bit about your health history?",
+          "caption": "Let's make sure we know about everything you're sensitive to",
+          "question": "Please describe the serious reaction you experienced",
+          "note": "Type here, or tap N/A on right if not applicable",
+          "fieldName": "seriousReactionsList",
+          "component": "TextInput",
+          "required": true,
+          "props": {
+            "placeholder": "Please describe the reaction or N/A",
+            "errorMessage": "Please provide details about the reaction or write N/A",
+            "allowNA": true
+          },
+          "dependsOn": {
+            "fieldName": "hasSeriousReaction",
+            "condition": "equals",
+            "value": "Yes"
+          }
+        }
+      ]
+    },
+    {
+      "stepId": 5,
+      "stepTitle": "Verification",
+      "marketingId": 4,
+      "subSteps": [
+        {
+          "subStepId": 1,
+          "heading": "Hey {userName}, we just need a couple more things.",
+          "caption": "We need to verify your identity and understand how you'd like to connect with your provider",
+          "fieldName": "consultationPreference",
+          "component": "ConsultationPreference",
+          "required": true,
+          "props": {}
+        },
+        {
+          "subStepId": 2,
+          "heading": "Hey {userName}, let's double-check that we have everything. Once we do, we're all set to go!",
+          "fieldName": "userDetails",
+          "component": "UserDetails",
+          "required": true,
+          "props": {
+            "basicInfoFieldName": "basicInfo"
+          }
+        }
+      ]
+    }
+  ],
+  "conditionTypes": {
+    "equals": "Check if field value equals specified value",
+    "notEquals": "Check if field value does not equal specified value",
+    "hasLength": "Check if array/string has length greater than 0",
+    "isEmpty": "Check if field is empty/null/undefined",
+    "isNotEmpty": "Check if field has a value",
+    "contains": "Check if array contains specified value",
+    "greaterThan": "Check if numeric value is greater than specified value",
+    "lessThan": "Check if numeric value is less than specified value"
+  }
+}

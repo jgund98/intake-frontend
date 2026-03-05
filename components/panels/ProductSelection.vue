@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue';
 import { useOrganizationStore } from '~/stores/organizationStore';
 import { useFormStore } from '~/stores/intakeFormStore';
+import { getProductTagForCategory } from '~/data/forms/index';
 import type { ProductBundle } from '~/models/apiResponse.model';
 import ProductCard from '~/components/cards/ProductCard.vue';
 import BundleCard from '~/components/cards/BundleCard.vue';
@@ -80,15 +81,36 @@ const allProducts = computed(() => {
   const bundles = orgStore.orgData?.productBundles || [];
   const category = selectedCategory.value;
 
-  console.log(category, 'Here see this');
+  console.log('=== PRODUCT FILTERING DEBUG ===');
+  console.log('Selected Category:', category);
+  console.log('Total Bundles Available:', bundles.length);
+  console.log('Bundle Tags:', bundles.map(b => ({ name: b.name, tag: b.tag })));
 
   // If no category selected, return all products
   if (!category) return bundles;
 
-  // Filter bundles where at least one product has matching category
-  return bundles.filter(
-    bundle => bundle?.tag?.toLowerCase() === category.toLowerCase()
+  // Get the product tag that corresponds to this category
+  const productTag = getProductTagForCategory(category);
+  console.log('Mapped Product Tag:', productTag);
+
+  if (!productTag) {
+    console.warn(`⚠️ No product tag mapping found for category "${category}"`);
+    return [];
+  }
+
+  // Filter bundles where tag matches the mapped product tag
+  const filtered = bundles.filter(
+    bundle => bundle?.tag?.toLowerCase() === productTag.toLowerCase()
   );
+
+  console.log('Filtered Products:', filtered.length);
+  
+  if (filtered.length === 0) {
+    console.warn(`⚠️ No products found with tag "${productTag}"`);
+    console.warn('Available tags:', [...new Set(bundles.map(b => b.tag).filter(Boolean))]);
+  }
+
+  return filtered;
 });
 
 // Helper function to extract base product name (without duration info)
@@ -461,8 +483,38 @@ const handleContinueClick = () => {
     </p>
   </div>
 
+  <!-- No Products Warning -->
+  <div
+    v-if="productGroups.length === 0"
+    class="bg-yellow-50 border-2 border-yellow-400 rounded-2xl p-6 mb-8"
+  >
+    <div class="flex items-start gap-3">
+      <NuxtImg
+        src="/icons/alert-triangle.svg"
+        alt="Warning"
+        width="24"
+        height="24"
+        class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1"
+      />
+      <div>
+        <h3 class="body1 !font-semibold text-gray-1 mb-2">
+          No Products Available
+        </h3>
+        <p class="body2 text-gray-2 mb-3">
+          No products are currently configured for the "{{ selectedCategory }}"
+          category. Please check the browser console for available product tags.
+        </p>
+        <p class="caption text-gray-11 italic">
+          Note: Products need to have a matching "tag" field in the organization
+          settings. Contact your administrator to configure products for this
+          category.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <!-- Product Swiper - Shows unique product groups only -->
-  <div class="relative mb-8">
+  <div v-if="productGroups.length > 0" class="relative mb-8">
     <ClientOnly>
       <swiper-container
         ref="swiperRef"
