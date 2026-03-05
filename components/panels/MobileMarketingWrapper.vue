@@ -41,6 +41,7 @@ const categoryDisplayNames: Record<string, string> = {
   'skin care': 'skin care',
   "men's health": "men's health",
   wellness: 'wellness',
+  'fungal health': 'fungal health',
 };
 
 // Get marketing slide data based on marketingId

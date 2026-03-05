@@ -24,7 +24,7 @@ A modern, full-featured healthcare intake platform built with Nuxt 4, Vue 3, and
 
 ## Overview
 
-Sana Vida is a healthcare intake platform designed to streamline patient onboarding for various medical services including weight loss, skin care, hair growth, men's health, and wellness programs. The platform features:
+Sana Vida is a healthcare intake platform designed to streamline patient onboarding for various medical services including weight loss, skin care, hair growth, men's health, fungal health, and wellness programs. The platform features:
 
 - Multi-step intake forms with conditional logic
 - Secure NMI payment integration
@@ -156,6 +156,7 @@ sana-vida/intake-frontend/
 ├── data/
 │   ├── forms/                          # Form configurations (JSON)
 │   │   ├── index.ts                    # Form config exports
+│   │   ├── fungalHealthConfig.json     # Fungal health intake form
 │   │   ├── hairGrowthConfig.json       # Hair growth intake form
 │   │   ├── marketingConfig.json        # Marketing content config
 │   │   ├── mensHealthConfig.json       # Men's health intake form
@@ -442,6 +443,7 @@ Form configurations are JSON files located in `data/forms/`. Each configuration 
 | Skin Care | `skinCareConfig.json` | Dermatological treatment intake |
 | Hair Growth | `hairGrowthConfig.json` | Hair restoration consultation |
 | Men's Health | `mensHealthConfig.json` | Men's wellness and vitality |
+| Fungal Health | `fungalHealthConfig.json` | Antifungal treatment consultation |
 | Wellness | `wellnessConfig.json` | General health and wellness |
 
 ### Form Configuration Structure
@@ -572,6 +574,39 @@ Full TypeScript support with:
 ---
 
 ## Additional Resources
+
+### Documentation Files
+
+The `docs/` directory contains comprehensive guides for different audiences:
+
+| Document | Audience | Purpose |
+|----------|----------|---------|
+| **INTEGRATION_GUIDE.md** | Frontend Developers | How to integrate marketing sites with the questionnaire funnel |
+| **AI_CONTEXT_SUMMARY.md** | AI Assistants / New Developers | System architecture and technical context |
+| **FUNGAL_HEALTH_SETUP.md** | DevOps / Backend | Product tag configuration and debugging |
+| **GTM_COMPLETE_GUIDE.md** | Marketing / Analytics | Google Tag Manager implementation |
+| **GLP_WINNER_GTM_SETUP.md** | Marketing | GLP-1 conversion tracking setup |
+
+### Key Concepts
+
+#### Category-Based Routing
+All questionnaires use a single route (`/`) with different `category` parameters:
+```
+/?category=weightloss
+/?category=skin%20care
+/?category=fungal%20health
+```
+
+#### Product Tag Mapping
+Categories map to Care360 product tags via `data/forms/index.ts`:
+```typescript
+'branded weight loss' → 'Weightloss'
+'fungal health' → 'Foot & Nail Health'
+```
+
+See `docs/INTEGRATION_GUIDE.md` for complete details.
+
+### External Resources
 
 | Resource | Link |
 |----------|------|

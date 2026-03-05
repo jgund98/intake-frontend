@@ -64,6 +64,7 @@ const getCountryCodeLength = (value: string): number => {
   // Try to determine from common patterns
   if (digits.startsWith('1')) return 2; // +1 (US, Canada)
   if (digits.startsWith('7')) return 2; // +7 (Russia, Kazakhstan)
+
   if (digits.length >= 2) {
     const firstTwo = digits.substring(0, 2);
     // Common 2-digit country codes
@@ -118,8 +119,8 @@ const getCountryCodeLength = (value: string): number => {
       return 3; // +XX format
     }
   }
-  if (digits.length >= 3) return 4; // +XXX format
 
+  if (digits.length >= 3) return 4; // +XXX format
   return value.length; // Still typing country code
 };
 
@@ -130,22 +131,29 @@ const formatPhoneNumber = (value: string): string => {
   // Remove any non-numeric characters except +
   let cleaned = value.replace(/[^\d+]/g, '');
 
-  // US-only: If user starts with "1" (without +), auto-add "+" prefix
+  // If starts with +1, keep it
+  if (cleaned.startsWith('+1')) {
+    cleaned = cleaned.substring(0, 12); // +1 + 10 digits max
+    const formatter = new AsYouType('US');
+    return formatter.input(cleaned);
+  }
+
+  // If starts with 1 (without +), auto-add "+" prefix
   if (cleaned.startsWith('1') && !cleaned.startsWith('+')) {
     cleaned = '+' + cleaned;
+    cleaned = cleaned.substring(0, 12); // +1 + 10 digits max
+    const formatter = new AsYouType('US');
+    return formatter.input(cleaned);
   }
 
   // If starts with +, apply dynamic length based on country code
   if (cleaned.startsWith('+')) {
     const countryCodeLength = getCountryCodeLength(cleaned);
-
     // Max length = country code length + 10 digits for phone number
     const maxLength = countryCodeLength + 10;
-
     if (cleaned.length > maxLength) {
       cleaned = cleaned.substring(0, maxLength);
     }
-
     // Format using AsYouType
     const formatter = new AsYouType();
     return formatter.input(cleaned);

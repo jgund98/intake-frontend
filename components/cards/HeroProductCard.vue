@@ -26,7 +26,7 @@ const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
   >
     <div class="flex items-center gap-4">
       <!-- Content Section -->
-      <div class="flex-1 min-w-0 pr-26 lg:pr-28 relative z-10">
+      <div class="flex-1 min-w-0 pr-32 sm:pr-36 md:pr-40 lg:pr-44 relative z-10">
         <!-- Rating -->
         <div class="flex items-center gap-2 mb-1">
           <span class="text-white text-xl md:text-2xl font-bold">
@@ -94,14 +94,14 @@ const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
         </p>
       </div>
 
-      <!-- Product Image - Absolute positioned, overflows bottom, behind text -->
+      <!-- Product Image - Absolute positioned at right edge -->
       <div
-        class="absolute right-4 md:right-8 bottom-0 overflow-hidden z-0 h-40 sm:h-auto"
+        class="absolute right-0 bottom-0 overflow-hidden z-0 pointer-events-none"
       >
         <NuxtImg
           :src="productImage"
           alt="Product"
-          class="w-auto h-60 sm:h-41 object-contain drop-shadow-lg sm:translate-y-8"
+          class="w-auto h-48 sm:h-52 md:h-60 object-contain object-right-bottom drop-shadow-lg translate-y-4 sm:translate-y-6 -mr-4 sm:-mr-6 md:-mr-8"
         />
       </div>
     </div>

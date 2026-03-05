@@ -22,11 +22,10 @@ export function useOrgData() {
       if (response.ok) {
         // Success
         orgData.value = response.data;
-        // uiStore.showToast(
-        //   'Success',
-        //   'Organization data loaded successfully',
-        //   ResponseType.SUCCESS
-        // );
+        
+        // Debug: Log raw product bundles from API
+        console.log('🔍 RAW API RESPONSE - Product Bundles:', response.data.productBundles);
+        
         return true;
       }
 

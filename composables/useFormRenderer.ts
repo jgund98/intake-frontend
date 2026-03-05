@@ -80,6 +80,12 @@ const componentMap: Record<string, Component> = {
   UserDetails: defineAsyncComponent(
     () => import('~/components/panels/UserDetails.vue')
   ),
+  ConditionDetailsWithUpload: defineAsyncComponent(
+    () => import('~/components/panels/ConditionDetailsWithUpload.vue')
+  ),
+  TwoDropdowns: defineAsyncComponent(
+    () => import('~/components/panels/TwoDropdowns.vue')
+  ),
   TextArea: defineAsyncComponent(() => import('~/components/ui/TextArea.vue')),
   TextInput: defineAsyncComponent(
     () => import('~/components/ui/TextInput.vue')
@@ -316,9 +322,8 @@ export function useFormRenderer() {
       case 'PhoneInput': {
         if (!isValidString(fieldValue)) return false;
         try {
-          // Validate using libphonenumber-js
-          // Default to US if no country code provided
-          return isValidPhoneNumber(fieldValue as string, 'US');
+          const phoneStr = (fieldValue as string).trim();
+          return isValidPhoneNumber(phoneStr);
         } catch {
           // If parsing fails, return false
           return false;
@@ -358,6 +363,47 @@ export function useFormRenderer() {
         // ProductSelection stores data as { productId, bundleId }
         if (typeof fieldValue !== 'object' || fieldValue === null) return false;
         return !!(fieldValue.productId && fieldValue.bundleId);
+      }
+
+      case 'ConditionDetailsWithUpload': {
+        // ConditionDetailsWithUpload stores data as { fieldOne, fieldTwo, fieldThree }
+        if (typeof fieldValue !== 'object' || fieldValue === null) return false;
+        
+        // Validate fieldOne (duration dropdown)
+        const fieldOne = fieldValue.fieldOne;
+        const isFieldOneValid = fieldOne && String(fieldOne).trim() !== '';
+        
+        // Validate fieldTwo (clinical diagnosis dropdown)
+        const fieldTwo = fieldValue.fieldTwo;
+        const isFieldTwoValid = fieldTwo && String(fieldTwo).trim() !== '';
+        
+        // Validate fieldThree (photo upload array)
+        const fieldThree = fieldValue.fieldThree;
+        const isFieldThreeValid = 
+          Array.isArray(fieldThree) &&
+          fieldThree.length > 0 &&
+          fieldThree[0] &&
+          typeof fieldThree[0] === 'object' &&
+          fieldThree[0].name &&
+          fieldThree[0].fileUrl &&
+          fieldThree[0].s3Key;
+        
+        return !!(isFieldOneValid && isFieldTwoValid && isFieldThreeValid);
+      }
+
+      case 'TwoDropdowns': {
+        // TwoDropdowns stores data as { fieldOne, fieldTwo }
+        if (typeof fieldValue !== 'object' || fieldValue === null) return false;
+        
+        // Validate fieldOne
+        const fieldOne = fieldValue.fieldOne;
+        const isFieldOneValid = fieldOne && String(fieldOne).trim() !== '';
+        
+        // Validate fieldTwo
+        const fieldTwo = fieldValue.fieldTwo;
+        const isFieldTwoValid = fieldTwo && String(fieldTwo).trim() !== '';
+        
+        return !!(isFieldOneValid && isFieldTwoValid);
       }
 
       default: {
