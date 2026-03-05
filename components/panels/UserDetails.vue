@@ -119,12 +119,11 @@ const userDetailsSchema = z.object({
   phoneNumber: z.string().refine(val => {
     if (!val || val.trim().length === 0) return false;
     try {
-      // Only validate as US number
-      return isValidPhoneNumber(val.trim(), 'US');
+      return isValidPhoneNumber(val.trim());
     } catch {
       return false;
     }
-  }, 'Please enter a valid US phone number'),
+  }, 'Please enter a valid phone number'),
   birthDate: z.string().min(1, 'Birth date is required'),
   consent: z
     .boolean()

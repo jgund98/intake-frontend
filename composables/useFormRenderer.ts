@@ -323,8 +323,7 @@ export function useFormRenderer() {
         if (!isValidString(fieldValue)) return false;
         try {
           const phoneStr = (fieldValue as string).trim();
-          // Only validate as US number
-          return isValidPhoneNumber(phoneStr, 'US');
+          return isValidPhoneNumber(phoneStr);
         } catch {
           // If parsing fails, return false
           return false;
