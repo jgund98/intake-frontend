@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import MultiSelect from '~/components/panels/MultiSelect.vue';
 import Dropdown from '~/components/ui/Dropdown.vue';
 import type { options } from '~/models/panels.model';
 
@@ -37,7 +36,7 @@ const modelValue = defineModel<Record<string, any>>({ default: {} });
 
 // Internal state for child components
 const internalData = ref<Record<string, any>>({
-  [FIELD_ONE]: [],
+  [FIELD_ONE]: '',
   [FIELD_TWO]: '',
   [FIELD_THREE]: '',
 });
@@ -48,7 +47,7 @@ watch(
   newData => {
     if (newData && typeof newData === 'object') {
       // Update internal data from parent
-      if (newData[FIELD_ONE] && Array.isArray(newData[FIELD_ONE])) {
+      if (newData[FIELD_ONE] !== undefined) {
         internalData.value[FIELD_ONE] = newData[FIELD_ONE];
       }
       if (newData[FIELD_TWO] !== undefined) {
@@ -69,8 +68,9 @@ const isComplete = computed(() => {
   const fieldThreeValue = internalData.value[FIELD_THREE];
 
   return (
-    Array.isArray(fieldOneValue) &&
-    fieldOneValue.length > 0 &&
+    fieldOneValue !== null &&
+    fieldOneValue !== undefined &&
+    String(fieldOneValue).trim() !== '' &&
     fieldTwoValue !== null &&
     fieldTwoValue !== undefined &&
     String(fieldTwoValue).trim() !== '' &&
@@ -125,18 +125,19 @@ watch(
   <div
     class="flex flex-col gap-6 p-4 md:p-6 rounded-2xl bg-primary-dark-1 text-gray-2"
   >
-    <!-- First Field: Multi-Select -->
+    <!-- First Field: Dropdown -->
     <div>
       <label class="block body2 text-gray-2 mb-2">
         {{ questionOne }}
       </label>
 
-      <MultiSelect
+      <Dropdown
         v-model="internalData"
         :field-name="FIELD_ONE"
         :options="optionsOne"
-        :placeholder="placeholderOne"
+        :placeholder="placeholderOne ?? 'Select an option'"
         :required="required"
+        :is-primary="true"
       />
 
       <!-- Note for first field -->

@@ -137,6 +137,7 @@ watch(
         :placeholder="placeholderTwo ?? 'Text field'"
         :required="required"
         :is-primary="true"
+        :allow-n-a="true"
       />
 
       <!-- Note for second field -->
