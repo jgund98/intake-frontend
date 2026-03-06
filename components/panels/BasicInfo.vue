@@ -232,7 +232,7 @@ watch(
         id="marketingConsent"
         v-model="formData.marketingConsent"
         type="checkbox"
-        class="mt-0.5 w-4 h-4 rounded border-[#FFE999] text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer flex-shrink-0"
+        class="mt-0.5 w-4 h-4 rounded border-2 border-yellow-400 text-primary focus:ring-yellow-400 focus:ring-offset-0 cursor-pointer flex-shrink-0 accent-yellow-400"
       />
       <label
         for="marketingConsent"

@@ -21,12 +21,11 @@ const stepCircleBaseClasses =
   'w-10 h-10 rounded-full flex items-center justify-center subtitle2';
 
 // State-specific classes for step circles
-// State-specific classes for step circles
 const stepCircleStateClasses = {
-  completed: 'bg-primary-light text-gray-900 font-bold',
+  completed: 'bg-primary-light text-white font-bold',
   
   active: 
-    'font-bold text-gray-900 bg-primary-light shadow-[0_10px_15px_-3px_var(--color-primary-dark-4),0_4px_6px_-4px_var(--color-primary-dark-4)]',
+    'font-bold text-white bg-primary-light shadow-[0_10px_15px_-3px_var(--color-primary-dark-4),0_4px_6px_-4px_var(--color-primary-dark-4)]',
     
   pending: 'bg-background-muted text-icon-inactive font-medium',
 };
