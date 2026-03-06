@@ -8,6 +8,8 @@ import Dropdown from '~/components/ui/Dropdown.vue';
 const props = defineProps<{
   fieldName: string;
   required?: boolean;
+  showMarketingConsent?: boolean;
+  marketingConsentText?: string;
 }>();
 
 const modelValue = defineModel<Record<string, any>>({ default: {} });
@@ -35,6 +37,7 @@ const formData = ref<Record<string, any>>({
   lastName: '',
   email: '',
   gender: '',
+  marketingConsent: false,
 });
 
 // Watch parent modelValue and restore to local formData
@@ -81,17 +84,31 @@ const genderOptions = [
 ];
 
 // Zod validation schema
-const basicInfoSchema = z.object({
-  firstName: z
-    .string()
-    .min(1, 'First name is required')
-    .regex(/^[A-Za-z\s']+$/, 'First name must contain only letters'),
-  lastName: z
-    .string()
-    .min(1, 'Last name is required')
-    .regex(/^[A-Za-z\s']+$/, 'Last name must contain only letters'),
-  email: z.string().email('Invalid email address'),
-  gender: z.string().min(1, 'Gender is required'),
+const basicInfoSchema = computed(() => {
+  const baseSchema = {
+    firstName: z
+      .string()
+      .min(1, 'First name is required')
+      .regex(/^[A-Za-z\s']+$/, 'First name must contain only letters'),
+    lastName: z
+      .string()
+      .min(1, 'Last name is required')
+      .regex(/^[A-Za-z\s']+$/, 'Last name must contain only letters'),
+    email: z.string().email('Invalid email address'),
+    gender: z.string().min(1, 'Gender is required'),
+  };
+
+  // Add marketingConsent validation if showMarketingConsent is true
+  if (props.showMarketingConsent) {
+    return z.object({
+      ...baseSchema,
+      marketingConsent: z.boolean().refine(val => val === true, {
+        message: 'You must agree to receive marketing communications',
+      }),
+    });
+  }
+
+  return z.object(baseSchema);
 });
 
 // Validator functions for TextInput
@@ -119,7 +136,7 @@ const validateLastName = (value: string): string => {
 
 // Validation function
 const isComplete = computed(() => {
-  const result = basicInfoSchema.safeParse(formData.value);
+  const result = basicInfoSchema.value.safeParse(formData.value);
   return result.success;
 });
 
@@ -204,6 +221,28 @@ watch(
           error-message="Gender is required"
         />
       </div>
+    </div>
+
+    <!-- Marketing Consent Checkbox -->
+    <div
+      v-if="showMarketingConsent"
+      class="flex items-start gap-3 p-4 rounded-2xl bg-[#FFF9E6] border border-[#FFE999]"
+    >
+      <input
+        id="marketingConsent"
+        v-model="formData.marketingConsent"
+        type="checkbox"
+        class="mt-0.5 w-4 h-4 rounded border-[#FFE999] text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer flex-shrink-0"
+      />
+      <label
+        for="marketingConsent"
+        class="body2 font-regular text-gray-900 leading-relaxed cursor-pointer select-none"
+      >
+        {{
+          marketingConsentText ||
+          'I agree to receive emails and text messages for marketing, updates, and promotional purposes from Viva Wellness Life. I understand I can opt out at any time.'
+        }}
+      </label>
     </div>
   </div>
 </template>
