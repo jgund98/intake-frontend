@@ -36,7 +36,7 @@ const lineBaseClasses = 'w-[50px] h-[4px] rounded-full flex-shrink-0';
 
 // State-specific classes for connector lines
 const lineStateClasses = {
-  completed: 'bg-primary',
+  completed: 'bg-primary-light',
   pending: 'bg-background-muted',
 };
 
