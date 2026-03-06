@@ -13,7 +13,10 @@
           "fieldName": "basicInfo",
           "component": "BasicInfo",
           "required": true,
-          "props": {}
+          "props": {
+            "showMarketingConsent": true,
+            "marketingConsentText": "I agree to receive emails and text messages for marketing, updates, and promotional purposes from Viva Wellness Life. I understand I can opt out at any time."
+          }
         },
         {
           "subStepId": 2,
@@ -280,70 +283,6 @@
             "placeholder": "Additional health information or N/A",
             "errorMessage": "Please provide additional information or write N/A",
             "allowNA": true
-          }
-        },
-        {
-          "subStepId": 3,
-          "heading": "Hey {userName}, can you share a bit about your health history?",
-          "caption": "Let's make sure we know about everything you're taking and sensitive to",
-          "question": "",
-          "note": "This helps us understand your current concerns and design the most effective plan.",
-          "fieldName": "allergicMedicalConditionsAndMedications",
-          "component": "MultiSelectWithText",
-          "required": true,
-          "props": {
-            "questionOne": "Do you have or had any of the following?",
-            "questionTwo": "List all current medical conditions.",
-            "noteOne": "Please select all that apply.",
-            "noteTwo": "Type here, or tap N/A on right if not applicable",
-            "placeholderOne": "Type to search conditions…",
-            "placeholderTwo": "List all medical conditions or N/A",
-            "options": [
-              {
-                "label": "Heart failure",
-                "value": "Heart failure"
-              },
-              {
-                "label": "Pericarditis",
-                "value": "Pericarditis"
-              },
-              {
-                "label": "Benign Prostatic Hyperplasia",
-                "value": "Benign Prostatic Hyperplasia"
-              },
-              {
-                "label": "Liver disease",
-                "value": "Liver disease"
-              },
-              {
-                "label": "Kidney disease",
-                "value": "Kidney disease"
-              },
-              {
-                "label": "Breast cancer",
-                "value": "Breast cancer"
-              },
-              {
-                "label": "Prostate cancer",
-                "value": "Prostate cancer"
-              },
-              {
-                "label": "Blood clotting disorder",
-                "value": "Blood clotting disorder"
-              },
-              {
-                "label": "Stroke or TIA",
-                "value": "Stroke or TIA"
-              },
-              {
-                "label": "Depression or anxiety",
-                "value": "Depression or anxiety"
-              },
-              {
-                "label": "None of the above",
-                "value": "None of the above"
-              }
-            ]
           }
         }
       ]

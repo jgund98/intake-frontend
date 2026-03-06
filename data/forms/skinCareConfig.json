@@ -13,7 +13,10 @@
           "fieldName": "basicInfo",
           "component": "BasicInfo",
           "required": true,
-          "props": {}
+          "props": {
+            "showMarketingConsent": true,
+            "marketingConsentText": "I agree to receive emails and text messages for marketing, updates, and promotional purposes from Viva Wellness Life. I understand I can opt out at any time."
+          }
         },
         {
           "subStepId": 2,
@@ -43,8 +46,8 @@
             "questionOne": "How would you describe your acne?",
             "questionTwo": "Please select how dry/oily your skin is.",
             "questionThree": "How sensitive is your skin?",
-            "noteOne": "Please select all that apply.",
-            "placeholderOne": "Type to search…",
+            "noteOne": "Please select one option.",
+            "placeholderOne": "Select an option",
             "placeholderTwo": "Select an option",
             "placeholderThree": "Select an option",
             "optionsOne": [
@@ -322,7 +325,7 @@
           "component": "MultiSelectWithText",
           "required": true,
           "props": {
-            "questionOne": "Do you have any of the following skin conditions? Please select all that apply.",
+            "questionOne": "Do you have any of the following medical conditions? Please select all that apply.",
             "questionTwo": "Please list all other current medical conditions.",
             "noteOne": "Please select all that apply.",
             "noteTwo": "Type here, or tap N/A on right if not applicable",

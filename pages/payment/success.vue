@@ -41,7 +41,12 @@ const submitError = ref('');
 const userName = computed(() => {
   const userDetails = formStore.formData?.userDetails as any;
   const basicInfo = formStore.formData?.basicInfo as any;
-  return userDetails?.firstName || basicInfo?.firstName || 'there';
+  
+  // Try to get firstName from userDetails or basicInfo
+  const firstName = userDetails?.firstName || basicInfo?.firstName;
+  
+  // Return firstName or fallback to 'there'
+  return firstName || 'there';
 });
 
 // Get user's email from form data
