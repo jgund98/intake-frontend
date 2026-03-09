@@ -9,7 +9,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   rating: 4.5,
-  heading: 'Transform Your Health Journey with Sana Vida',
+  heading: 'Transform Your Health Journey with Nyxara',
   caption: 'Join a joyful community of patients with great savings!',
   productImage: '/images/default-product.png',
 });
