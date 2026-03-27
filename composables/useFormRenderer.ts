@@ -625,6 +625,15 @@ export function useFormRenderer() {
     return currentStepId.value === 1 && currentSubStepId.value === 1;
   });
 
+  // Check if we're on the last substep of the last step (for finish-quiz button ID)
+  const isLastStepLastSubStep = computed(() => {
+    const lastStep = steps.value[steps.value.length - 1];
+    if (!lastStep) return false;
+    const lastVisibleSubSteps = getVisibleSubSteps(lastStep.subSteps);
+    const lastSubStepId = lastVisibleSubSteps[lastVisibleSubSteps.length - 1]?.subStepId;
+    return currentStepId.value === lastStep.stepId && currentSubStepId.value === lastSubStepId;
+  });
+
   return {
     currentStepId,
     currentSubStepId,
@@ -641,6 +650,7 @@ export function useFormRenderer() {
     shouldHideContinueButton,
     isCurrentFieldValid,
     isFirstStepFirstSubStep,
+    isLastStepLastSubStep,
     handleNext,
     handlePrevious,
     handleMarketingContinue,

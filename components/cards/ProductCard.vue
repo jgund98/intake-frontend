@@ -28,8 +28,9 @@ const handleSelect = (productId: string) => {
 
 <template>
   <div
+    :id="'select-product-' + product.id"
     class="relative flex flex-col items-center p-4 border rounded-4xl cursor-pointer transition-all duration-200 h-full w-full border-primary-dark-4"
-    :class="isSelected ? 'bg-primary-dark-2' : 'bg-white'"
+    :class="isSelected ? 'bg-primary-dark-2 selected-product' : 'bg-white'"
     @click="handleSelect(product.id)"
   >
     <!-- Radio Button -->

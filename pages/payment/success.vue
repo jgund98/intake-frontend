@@ -219,7 +219,7 @@ const handleComplete = async () => {
 </script>
 
 <template>
-  <div class="w-full max-w-2xl mx-auto">
+  <div id="payment-success" class="w-full max-w-2xl mx-auto">
     <!-- Mobile Success Card (only loads on screens < 1280px) -->
     <Transition v-if="isMobileScreen" name="slide-left" mode="out-in">
       <div v-if="showMobileSuccessCard" key="mobile-card">

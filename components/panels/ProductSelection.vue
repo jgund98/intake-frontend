@@ -585,6 +585,7 @@ const handleContinueClick = () => {
           :key="bundle.id"
           :bundle-id="bundle.id"
           :bundle-name="bundle.name"
+          :duration="bundle.duration"
           :total-price="bundle.totalPrice"
           :price-per-month="bundle.pricePerMonth"
           :save-percentage="bundle.savePercentage"
@@ -695,6 +696,7 @@ const handleContinueClick = () => {
 
     <button
       v-if="isComplete"
+      id="checkout"
       :disabled="!isComplete"
       class="flex-1 min-w-0 w-0 px-6 py-3 rounded-full bg-primary text-white hover:bg-secondary disabled:bg-primary-light disabled:cursor-not-allowed transition-all duration-200 subtitle1 font-semibold flex items-center justify-center gap-2 shadow-lg cursor-pointer"
       @click="handleContinueClick"

@@ -1081,6 +1081,7 @@ declare global {
           <span class="hidden xl:inline">Go back</span>
         </button>
         <button
+          id="checkout"
           type="submit"
           :disabled="!isFormValid"
           class="flex-1 min-w-0 w-0 px-6 py-3 rounded-full bg-primary text-white hover:bg-secondary disabled:bg-primary-light disabled:cursor-not-allowed transition-all duration-200 subtitle1 font-semibold flex items-center justify-center gap-2 shadow-lg cursor-pointer"

@@ -2,6 +2,7 @@
 interface Props {
   bundleId: string;
   bundleName: string;
+  duration: string;
   totalPrice: number;
   pricePerMonth: number;
   savePercentage?: number;
@@ -23,10 +24,12 @@ const handleSelect = (bundleId: string) => {
 
 <template>
   <div
+    :id="'select-product-' + bundleId"
+    :data-variant="duration"
     class="relative rounded-[14px] cursor-pointer transition-all duration-200"
     :class="
       isSelected
-        ? 'border-2 border-primary shadow-lg bg-primary-light-4'
+        ? 'border-2 border-primary shadow-lg bg-primary-light-4 selected-product'
         : 'border-2 border-gray-200 hover:border-gray-300 bg-white'
     "
     @click="handleSelect(bundleId)"

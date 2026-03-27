@@ -22,6 +22,7 @@ onMounted(() => {
 });
 
 const {
+  currentStepId,
   currentStepConfig,
   currentSubStepConfig,
   currentSubStepIndex,
@@ -33,6 +34,7 @@ const {
   shouldShowMarketing,
   shouldHideContinueButton,
   isFirstStepFirstSubStep,
+  isLastStepLastSubStep,
   handleNext,
   handlePrevious,
   handleMarketingContinue,
@@ -69,6 +71,7 @@ onMounted(() => {
       <HeroProductCard v-if="isFirstStepFirstSubStep" />
 
       <FormCardWrapper
+        :id="'step-' + currentStepId + '-question-' + (currentSubStepIndex + 1)"
         :total-sub-steps="totalSubSteps"
         :current-sub-step="currentSubStepIndex + 1"
         :heading="currentSubStepConfig.heading"
@@ -113,6 +116,13 @@ onMounted(() => {
         <!-- Continue Button -->
         <button
           v-if="!shouldHideContinueButton"
+          :id="
+            isFirstStepFirstSubStep
+              ? 'begin-quiz'
+              : isLastStepLastSubStep
+                ? 'finish-quiz'
+                : undefined
+          "
           :disabled="!canGoNext"
           class="flex-1 min-w-0 w-0 px-6 py-3 rounded-full transition-all duration-300 subtitle1 font-semibold flex items-center justify-center gap-2 shadow-lg cursor-pointer /* 1. DISABLED: Subtle Mint Tint (Lightest) */ disabled:cursor-not-allowed disabled:bg-primary-light-4 disabled:text-primary-dark-7 disabled:shadow-none /* 2. ENABLED (Idle): Mid Green (Secondary) */ not-disabled:bg-secondary not-disabled:text-white /* 3. HOVER: Darkest Green (Primary) */ hover:not-disabled:bg-primary"
           @click="handleNext"
