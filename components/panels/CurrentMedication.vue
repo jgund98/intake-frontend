@@ -2,7 +2,7 @@
 import { ref, watch, computed } from 'vue';
 import FileUpload from '~/components/cards/FileUpload.vue';
 import NumberInput from '~/components/ui/NumberInput.vue';
-import DatePicker from '~/components/ui/DatePicker.vue';
+import DateInput from '~/components/ui/DateInput.vue';
 import Dropdown from '~/components/ui/Dropdown.vue';
 
 interface MedicationOption {
@@ -98,7 +98,7 @@ watch(
       <label class="font-regular text-subtitle1 text-gray-2"
         >My last dose was on:</label
       >
-      <DatePicker
+      <DateInput
         v-model="formData"
         placeholder="Date"
         :max-date="new Date().toISOString().split('T')[0]"

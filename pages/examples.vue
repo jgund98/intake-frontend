@@ -11,7 +11,7 @@ import MultiSelect from '~/components/panels/MultiSelect.vue';
 import CurrentMedication from '~/components/panels/CurrentMedication.vue';
 import ConsultationPreference from '~/components/panels/ConsultationPreference.vue';
 import Dropdown from '~/components/ui/Dropdown.vue';
-import DatePicker from '~/components/ui/DatePicker.vue';
+import DateInput from '~/components/ui/DateInput.vue';
 import TextInput from '~/components/ui/TextInput.vue';
 import TextArea from '~/components/ui/TextArea.vue';
 import EmailInput from '~/components/ui/EmailInput.vue';
@@ -162,31 +162,31 @@ const medicationOptions = [
       </div>
 
       <!-- ============================================= -->
-      <!-- DATEPICKER COMPONENTS -->
+      <!-- DATEINPUT COMPONENTS -->
       <!-- ============================================= -->
       <div class="space-y-6">
         <div class="border-b-2 border-primary pb-2">
-          <h2 class="text-xl font-bold text-primary">DatePicker Components</h2>
+          <h2 class="text-xl font-bold text-primary">DateInput Components</h2>
         </div>
 
-        <!-- DatePicker (No restrictions) -->
+        <!-- DateInput (No restrictions) -->
         <div>
           <h3 class="text-lg font-semibold mb-3">
-            DatePicker (No restrictions) - Select any date
+            DateInput (No restrictions) - Select any date
           </h3>
-          <DatePicker
+          <DateInput
             v-model="formData"
             field-name="anyDate"
             placeholder="Pick any date"
           />
         </div>
 
-        <!-- DatePicker (Past dates only - Date of Birth) -->
+        <!-- DateInput (Past dates only - Date of Birth) -->
         <div>
           <h3 class="text-lg font-semibold mb-3">
-            DatePicker (Past dates only) - What's your date of birth?
+            DateInput (Past dates only) - What's your date of birth?
           </h3>
-          <DatePicker
+          <DateInput
             v-model="formData"
             field-name="dateOfBirth"
             :max-date="new Date().toISOString().split('T')[0]"
@@ -194,12 +194,12 @@ const medicationOptions = [
           />
         </div>
 
-        <!-- DatePicker (Future dates only) -->
+        <!-- DateInput (Future dates only) -->
         <div>
           <h3 class="text-lg font-semibold mb-3">
-            DatePicker (Future dates only) - Preferred appointment date
+            DateInput (Future dates only) - Preferred appointment date
           </h3>
-          <DatePicker
+          <DateInput
             v-model="formData"
             field-name="appointmentDate"
             :min-date="new Date().toISOString().split('T')[0]"

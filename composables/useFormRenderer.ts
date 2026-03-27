@@ -93,8 +93,8 @@ const componentMap: Record<string, Component> = {
   NumberInput: defineAsyncComponent(
     () => import('~/components/ui/NumberInput.vue')
   ),
-  DatePicker: defineAsyncComponent(
-    () => import('~/components/ui/DatePicker.vue')
+  DateInput: defineAsyncComponent(
+    () => import('~/components/ui/DateInput.vue')
   ),
   EmailInput: defineAsyncComponent(
     () => import('~/components/ui/EmailInput.vue')
@@ -341,7 +341,7 @@ export function useFormRenderer() {
       case 'NumberInput':
         return typeof fieldValue === 'number' && !isNaN(fieldValue);
 
-      case 'DatePicker':
+      case 'DateInput':
         return isValidString(fieldValue);
 
       case 'FileUpload': {

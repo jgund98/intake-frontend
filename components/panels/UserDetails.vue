@@ -5,7 +5,7 @@ import { isValidPhoneNumber } from 'libphonenumber-js';
 import TextInput from '~/components/ui/TextInput.vue';
 import EmailInput from '~/components/ui/EmailInput.vue';
 import PhoneInput from '~/components/ui/PhoneInput.vue';
-import DatePicker from '~/components/ui/DatePicker.vue';
+import DateInput from '~/components/ui/DateInput.vue';
 
 const props = defineProps<{
   fieldName: string;
@@ -281,7 +281,7 @@ watch(
         <label class="font-regular text-body1 text-gray-2"
           >Your date of birth</label
         >
-        <DatePicker
+        <DateInput
           v-model="formData"
           fieldName="birthDate"
           placeholder="Select date of birth"
