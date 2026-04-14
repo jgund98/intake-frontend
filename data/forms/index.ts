@@ -15,23 +15,23 @@ const categoryToProductTag: Record<string, string> = {
   'branded weight loss': 'weightloss',
   'weight loss': 'weightloss',
   'weight loss product': 'weightloss',
-  'weightloss': 'weightloss',
-  
+  weightloss: 'weightloss',
+
   'skin care': 'skin care',
-  'skincare': 'skin care',
-  
+  skincare: 'skin care',
+
   "men's health": 'sexual health',
   'mens health': 'sexual health',
-  'sexual health': 'sexual health',
-  
-  'wellness': 'anti-aging & peptides',
+  // 'sexual health': 'sexual health',
+
+  wellness: 'anti-aging & peptides',
   'anti-aging & peptides': 'anti-aging & peptides',
   'anti-aging': 'anti-aging & peptides',
-  
+
   'fungal health': 'fungal health',
   'foot & nail health': 'foot & nail health',
-  'antifungal': 'foot & nail health',
-  
+  antifungal: 'foot & nail health',
+
   'hair growth': 'hair growth', // No matching tag found yet, keeping as-is
 };
 
@@ -45,33 +45,33 @@ const getProductTagForCategory = (category?: string): string | null => {
 // Mapping of categories to form configurations
 const categoryFormConfigs: Record<string, any> = {
   // Weight Loss - matches "Weightloss" tag from Care360
-  'weightloss': weightLossConfig,
+  weightloss: weightLossConfig,
   'weight loss': weightLossConfig,
   'weight loss product': weightLossConfig,
   'branded weight loss': weightLossConfig,
-  
+
   // Hair Growth - no matching tag found yet
   'hair growth': hairGrowthConfig,
-  
+
   // Skin Care - matches "Skin Care" tag from Care360
   'skin care': skinCareConfig,
-  'skincare': skinCareConfig,
-  
+  skincare: skinCareConfig,
+
   // Men's Health / Sexual Health - matches "Sexual Health" tag from Care360
   "men's health": mensHealthConfig,
   'mens health': mensHealthConfig,
-  'sexual health': mensHealthConfig,
-  
+  // 'sexual health': mensHealthConfig,
+
   // Wellness / Anti-Aging - matches "Anti-Aging & Peptides" tag from Care360
   wellness: wellnessConfig,
   'anti-aging & peptides': wellnessConfig,
   'anti-aging': wellnessConfig,
-  
+
   // Fungal Health - matches "Foot & Nail Health" tag from Care360
   'fungal health': fungalHealthConfig,
   'foot & nail health': fungalHealthConfig,
-  'antifungal': fungalHealthConfig,
-  
+  antifungal: fungalHealthConfig,
+
   default: weightLossConfig,
 };
 
@@ -97,4 +97,9 @@ const isCategoryValid = (category: string): boolean => {
   return categoryFormConfigs[normalizedCategory] !== undefined;
 };
 
-export { marketingConfig, getCurrentFormConfig, isCategoryValid, getProductTagForCategory };
+export {
+  marketingConfig,
+  getCurrentFormConfig,
+  isCategoryValid,
+  getProductTagForCategory,
+};

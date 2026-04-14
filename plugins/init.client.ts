@@ -35,18 +35,7 @@ export default defineNuxtPlugin(nuxtApp => {
         // Store organization data in the store
         organizationStore.setOrgData(orgData.value);
 
-        // Debug: Log product bundles and their tags
-        console.log('=== ORGANIZATION DATA LOADED ===');
-        console.log('Organization:', orgData.value.organizationName);
-        console.log('Link Name:', orgData.value.linkName);
-        console.log('Total Product Bundles:', orgData.value.productBundles?.length || 0);
-        if (orgData.value.productBundles && orgData.value.productBundles.length > 0) {
-          console.log('Product Bundle Tags:');
-          orgData.value.productBundles.forEach(bundle => {
-            console.log(`  - ${bundle.name}: tag="${bundle.tag || 'NO TAG'}"`);
-          });
-        }
-        console.log('================================');
+
 
         // Provide organization data to the app (for backward compatibility)
         nuxtApp.provide('orgData', orgData.value);

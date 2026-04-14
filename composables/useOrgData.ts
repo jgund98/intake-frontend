@@ -22,10 +22,10 @@ export function useOrgData() {
       if (response.ok) {
         // Success
         orgData.value = response.data;
-        
+
         // Debug: Log raw product bundles from API
-        console.log('🔍 RAW API RESPONSE - Product Bundles:', response.data.productBundles);
-        
+        // console.log('🔍 RAW API RESPONSE - Product Bundles:', response.data.productBundles);
+
         return true;
       }
 
