@@ -15,7 +15,7 @@
           "required": true,
           "props": {
             "showMarketingConsent": true,
-            "marketingConsentText": "I agree to receive emails and text messages for marketing, updates, and promotional purposes from Viva Wellness Life. I understand I can opt out at any time."
+            "marketingConsentText": "I agree to receive emails and text messages for marketing, updates, and promotional purposes from Nyxara. I understand I can opt out at any time."
           }
         },
         {
@@ -41,9 +41,18 @@
           "props": {
             "placeholder": "Select all that apply",
             "options": [
-              { "label": "Are you currently pregnant", "value": "Currently pregnant" },
-              { "label": "Trying to become pregnant", "value": "Trying to become pregnant" },
-              { "label": "Currently breastfeeding", "value": "Currently breastfeeding" },
+              {
+                "label": "Are you currently pregnant",
+                "value": "Currently pregnant"
+              },
+              {
+                "label": "Trying to become pregnant",
+                "value": "Trying to become pregnant"
+              },
+              {
+                "label": "Currently breastfeeding",
+                "value": "Currently breastfeeding"
+              },
               { "label": "None of the above", "value": "None of the above" }
             ]
           },
@@ -153,9 +162,18 @@
             "placeholderOne": "Select an option",
             "placeholderTwo": "Select an option",
             "optionsOne": [
-              { "label": "Yes, over-the-counter topical", "value": "Yes, over-the-counter topical" },
-              { "label": "Yes, prescription topical", "value": "Yes, prescription topical" },
-              { "label": "Yes, oral antifungal", "value": "Yes, oral antifungal" },
+              {
+                "label": "Yes, over-the-counter topical",
+                "value": "Yes, over-the-counter topical"
+              },
+              {
+                "label": "Yes, prescription topical",
+                "value": "Yes, prescription topical"
+              },
+              {
+                "label": "Yes, oral antifungal",
+                "value": "Yes, oral antifungal"
+              },
               { "label": "No", "value": "No" }
             ],
             "optionsTwo": [
@@ -204,15 +222,27 @@
           "props": {
             "placeholder": "Select all that apply",
             "options": [
-              { "label": "Liver disease or abnormal liver tests", "value": "Liver disease or abnormal liver tests" },
-              { "label": "Hepatitis (A, B, or C)", "value": "Hepatitis (A, B, or C)" },
+              {
+                "label": "Liver disease or abnormal liver tests",
+                "value": "Liver disease or abnormal liver tests"
+              },
+              {
+                "label": "Hepatitis (A, B, or C)",
+                "value": "Hepatitis (A, B, or C)"
+              },
               { "label": "Kidney disease", "value": "Kidney disease" },
               { "label": "Heart disease", "value": "Heart disease" },
               { "label": "Psoriasis", "value": "Psoriasis" },
               { "label": "Lupus", "value": "Lupus" },
               { "label": "Blood disorders", "value": "Blood disorders" },
-              { "label": "Weakened immune system", "value": "Weakened immune system" },
-              { "label": "History of depression or significant mood changes", "value": "History of depression or significant mood changes" },
+              {
+                "label": "Weakened immune system",
+                "value": "Weakened immune system"
+              },
+              {
+                "label": "History of depression or significant mood changes",
+                "value": "History of depression or significant mood changes"
+              },
               { "label": "None of the above", "value": "None of the above" }
             ]
           }
@@ -228,8 +258,16 @@
           "required": true,
           "props": {
             "options": [
-              { "icon": "/icons/medicine.svg", "label": "Yes, I am", "value": "Yes" },
-              { "icon": "/icons/close.svg", "label": "No, I'm not", "value": "No" }
+              {
+                "icon": "/icons/medicine.svg",
+                "label": "Yes, I am",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No, I'm not",
+                "value": "No"
+              }
             ]
           }
         },
@@ -264,8 +302,16 @@
           "required": true,
           "props": {
             "options": [
-              { "icon": "/icons/medicine.svg", "label": "Yes, I am", "value": "Yes" },
-              { "icon": "/icons/close.svg", "label": "No, I'm not", "value": "No" }
+              {
+                "icon": "/icons/medicine.svg",
+                "label": "Yes, I am",
+                "value": "Yes"
+              },
+              {
+                "icon": "/icons/close.svg",
+                "label": "No, I'm not",
+                "value": "No"
+              }
             ]
           }
         },
@@ -320,9 +366,18 @@
               { "label": "Unusual fatigue", "value": "Unusual fatigue" },
               { "label": "Nausea or vomiting", "value": "Nausea or vomiting" },
               { "label": "Dark urine", "value": "Dark urine" },
-              { "label": "Pale or light-colored stools", "value": "Pale or light-colored stools" },
-              { "label": "Yellowing of skin or eyes", "value": "Yellowing of skin or eyes" },
-              { "label": "Right-upper abdominal pain", "value": "Right-upper abdominal pain" },
+              {
+                "label": "Pale or light-colored stools",
+                "value": "Pale or light-colored stools"
+              },
+              {
+                "label": "Yellowing of skin or eyes",
+                "value": "Yellowing of skin or eyes"
+              },
+              {
+                "label": "Right-upper abdominal pain",
+                "value": "Right-upper abdominal pain"
+              },
               { "label": "None of the above", "value": "None of the above" }
             ]
           }

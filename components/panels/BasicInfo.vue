@@ -240,7 +240,7 @@ watch(
       >
         {{
           marketingConsentText ||
-          'I agree to receive emails and text messages for marketing, updates, and promotional purposes from Viva Wellness Life. I understand I can opt out at any time.'
+          'I agree to receive emails and text messages for marketing, updates, and promotional purposes from Nyxara. I understand I can opt out at any time.'
         }}
       </label>
     </div>
