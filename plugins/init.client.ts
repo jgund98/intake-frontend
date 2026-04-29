@@ -32,47 +32,45 @@ export default defineNuxtPlugin(nuxtApp => {
       // Fetch organization data from API (loading is handled inside composable)
       const success = await fetchOrgData();
 
+      // Get runtime config
+      const {
+        public: { defaultCategory },
+      } = useRuntimeConfig();
+
+      // Get category from URL or use default
+      const categoryParam = String(route.query.category || '').trim();
+      // Decode URL-encoded category (e.g., "wellness%20%2F%20protein%20products" -> "wellness / protein products")
+      const urlCategory = categoryParam
+        ? decodeURIComponent(categoryParam)
+        : '';
+      const storedCategory = localStorage.getItem('category');
+
+      // Determine which category to use
+      let category = urlCategory || storedCategory || defaultCategory || 'weight loss';
+
+      // Validate if category exists in categoryFormConfigs
+      const isValid = isCategoryValid(category);
+
+      // If category is not valid, use default category
+      if (!isValid) {
+        category = defaultCategory || 'weight loss';
+      }
+
+      // If category changed from stored one, clear previous data
+      if (storedCategory && storedCategory !== category) {
+        formStore.resetForm();
+      }
+
+      // Store validated category in localStorage and organizationStore
+      localStorage.setItem('category', category);
+      organizationStore.setCategory(category);
+
       if (success && orgData.value) {
         // Store organization data in the store
         organizationStore.setOrgData(orgData.value);
 
-
-
         // Provide organization data to the app (for backward compatibility)
         nuxtApp.provide('orgData', orgData.value);
-
-        // Get runtime config
-        const {
-          public: { defaultCategory },
-        } = useRuntimeConfig();
-
-        // Get category from URL or use default
-        const categoryParam = String(route.query.category || '').trim();
-        // Decode URL-encoded category (e.g., "wellness%20%2F%20protein%20products" -> "wellness / protein products")
-        const urlCategory = categoryParam
-          ? decodeURIComponent(categoryParam)
-          : '';
-        const storedCategory = localStorage.getItem('category');
-
-        // Determine which category to use
-        let category = urlCategory || storedCategory || defaultCategory;
-
-        // Validate if category exists in categoryFormConfigs
-        const isValid = isCategoryValid(category);
-
-        // If category is not valid, use default category
-        if (!isValid) {
-          category = defaultCategory;
-        }
-
-        // If category changed from stored one, clear previous data
-        if (storedCategory && storedCategory !== category) {
-          formStore.resetForm();
-        }
-
-        // Store validated category in localStorage and organizationStore
-        localStorage.setItem('category', category);
-        organizationStore.setCategory(category);
 
         // Handle preselected product ID from URL
         const productIdParam = String(route.query.productId || '').trim();
