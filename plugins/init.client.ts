@@ -2,6 +2,7 @@ import { defineNuxtPlugin, useRouter, useRoute } from '#app';
 import { useRuntimeConfig } from '#imports';
 import { useFormStore } from '~/stores/intakeFormStore';
 import { useOrganizationStore } from '~/stores/organizationStore';
+import { useUiStore } from '~/stores/uiStore';
 import { useOrgData } from '~/composables/useOrgData';
 import { isCategoryValid } from '~/data/forms/index';
 
@@ -130,8 +131,13 @@ export default defineNuxtPlugin(nuxtApp => {
           }
         }
       }
-    } catch {
+    } catch (e) {
       // Error is already handled via toast in composable
+      console.warn('[init.client] Initialization error:', e);
+    } finally {
+      // Ensure loader is always stopped, even if something fails unexpectedly
+      const uiStore = useUiStore();
+      uiStore.stop();
     }
   });
 });

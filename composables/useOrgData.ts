@@ -31,14 +31,17 @@ export function useOrgData() {
 
       // Error response
       error.value = response.message;
+      console.warn('[useOrgData] API returned error:', response.message);
       // uiStore.showToast('Error', response.message, ResponseType.ERROR);
       return false;
     } catch (e: Error | any) {
       error.value = e ? e?.data?.message : 'Failed to fetch organization data';
+      console.warn('[useOrgData] Failed to fetch org data:', error.value);
       // uiStore.showToast('Error', error.value, ResponseType.ERROR);
       return false;
     } finally {
       loading.value = false;
+      // Always stop the loader, even on error
       uiStore.stop();
     }
   };

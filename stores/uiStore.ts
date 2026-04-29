@@ -10,7 +10,7 @@ export interface Toast {
 
 export const useUiStore = defineStore('uiStore', {
   state: () => ({
-    isLoading: true,
+    isLoading: false,
     toasts: [] as Toast[],
   }),
   actions: {
